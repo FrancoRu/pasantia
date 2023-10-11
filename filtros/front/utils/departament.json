@@ -1,0 +1,23 @@
+{
+  "departaments": [
+    { "value": "Paraná" },
+    { "value": "Concordia" },
+    { "value": "Gualeguaychú" },
+    { "value": "Uruguay" },
+    { "value": "Gualeguay" },
+    { "value": "Colón" },
+    { "value": "La Paz" },
+    { "value": "Federal" },
+    { "value": "Victoria" },
+    { "value": "Tala" },
+    { "value": "Islas del Ibicuy" },
+    { "value": "Nogoyá" },
+    { "value": "Villaguay" },
+    { "value": "Diamante" },
+    { "value": "Feliciano" },
+    { "value": "San Salvador" },
+    { "value": "Federación" },
+    { "value": "Federal" },
+    { "value": "San José de Feliciano" }
+  ]
+}
