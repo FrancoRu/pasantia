@@ -10,31 +10,32 @@ SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,N
 -- -----------------------------------------------------
 -- Schema mydb
 -- -----------------------------------------------------
-DROP SCHEMA IF EXISTS `mydb` ;
+DROP SCHEMA IF EXISTS `CUADROS` ;
 
 -- -----------------------------------------------------
 -- Schema mydb
 -- -----------------------------------------------------
-CREATE SCHEMA IF NOT EXISTS `mydb` DEFAULT CHARACTER SET utf8 ;
-USE `mydb` ;
+CREATE SCHEMA IF NOT EXISTS `CUADROS` DEFAULT CHARACTER SET utf8 ;
+USE `CUADROS` ;
 
 -- -----------------------------------------------------
 -- Table `mydb`.`Censo`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `mydb`.`Censo` ;
+DROP TABLE IF EXISTS `CUADROS`.`Censo` ;
 
-CREATE TABLE IF NOT EXISTS `mydb`.`Censo` (
+CREATE TABLE IF NOT EXISTS `CUADROS`.`Censo` (
   `id_censo_anio` INT NOT NULL,
+  `censo_descripcion` VARCHAR(255) NOT NULL,
+  `file_name` VARCHAR(255) NOT NULL,
   PRIMARY KEY (`id_censo_anio`))
 ENGINE = InnoDB;
-
 
 -- -----------------------------------------------------
 -- Table `mydb`.`Departamento`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `mydb`.`Departamento` ;
+DROP TABLE IF EXISTS `CUADROS`.`Departamento` ;
 
-CREATE TABLE IF NOT EXISTS `mydb`.`Departamento` (
+CREATE TABLE IF NOT EXISTS `CUADROS`.`Departamento` (
   `id_departamento` VARCHAR(3) NOT NULL,
   `nombre_departamento` VARCHAR(20) NOT NULL,
   PRIMARY KEY (`id_departamento`))
@@ -44,9 +45,9 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `mydb`.`Tematica`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `mydb`.`Tematica` ;
+DROP TABLE IF EXISTS `CUADROS`.`Tematica` ;
 
-CREATE TABLE IF NOT EXISTS `mydb`.`Tematica` (
+CREATE TABLE IF NOT EXISTS `CUADROS`.`Tematica` (
   `id_tematica` CHAR NOT NULL,
   `tematica_descripcion` VARCHAR(10) NOT NULL,
   PRIMARY KEY (`id_tematica`))
@@ -56,42 +57,46 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `mydb`.`Cuadro`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `mydb`.`Cuadro` ;
+DROP TABLE IF EXISTS `CUADROS`.`Cuadro` ;
 
-CREATE TABLE IF NOT EXISTS `mydb`.`Cuadro` (
+CREATE TABLE IF NOT EXISTS `CUADROS`.`Cuadro` (
   `id_cuadro` INT NOT NULL,
-  `id_tematica` CHAR NOT NULL,
+  `cuadro_id_tematica` CHAR NOT NULL,
+  `cuadro_id_departamento` VARCHAR(3) NOT NULL,
+  `cuadro_descripcion` VARCHAR(255) NOT NULL,
   `cuadro_titulo` VARCHAR(255) NOT NULL,
   `url_cuadro` VARCHAR(255) NOT NULL,
-  PRIMARY KEY (`id_cuadro`, `id_tematica`),
-  INDEX `id_tematica_idx` (`id_tematica` ASC) VISIBLE,
-  CONSTRAINT `id_tematica`
-    FOREIGN KEY (`id_tematica`)
-    REFERENCES `mydb`.`Tematica` (`id_tematica`)
+  PRIMARY KEY (`id_cuadro`, `cuadro_id_tematica`, `cuadro_id_departamento`),
+  INDEX `id_tematica_idx` (`cuadro_id_tematica` ASC),
+  CONSTRAINT `fk_cuadro_id_tematica`
+    FOREIGN KEY (`cuadro_id_tematica`)
+    REFERENCES `CUADROS`.`Tematica`(`id_tematica`),
+  CONSTRAINT `fk_cuadro_id_departamento`
+    FOREIGN KEY (`cuadro_id_departamento`)
+    REFERENCES `CUADROS`.`Departamento`(`id_departamento`)
     ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
-
+    ON UPDATE NO ACTION
+) ENGINE = InnoDB;
 
 -- -----------------------------------------------------
 -- Table `mydb`.`Tematica_has_Departamento`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `mydb`.`Tematica_has_Departamento` ;
+DROP TABLE IF EXISTS `CUADROS`.`Tematica_has_Departamento` ;
 
-CREATE TABLE IF NOT EXISTS `mydb`.`Tematica_has_Departamento` (
+CREATE TABLE IF NOT EXISTS `CUADROS`.`Tematica_has_Departamento` (
   `Tematica_id_tematica` CHAR NOT NULL,
   `Departamento_id_departamento` VARCHAR(3) NOT NULL,
   PRIMARY KEY (`Tematica_id_tematica`, `Departamento_id_departamento`),
-  INDEX `fk_Tematica_has_Departamento_Departamento1_idx` (`Departamento_id_departamento` ASC) VISIBLE,
-  INDEX `fk_Tematica_has_Departamento_Tematica_idx` (`Tematica_id_tematica` ASC) VISIBLE,
+  INDEX `fk_Tematica_has_Departamento_Departamento1_idx` (`Departamento_id_departamento` ASC),
+  INDEX `fk_Tematica_has_Departamento_Tematica_idx` (`Tematica_id_tematica` ASC),
   CONSTRAINT `fk_Tematica_has_Departamento_Tematica`
     FOREIGN KEY (`Tematica_id_tematica`)
-    REFERENCES `mydb`.`Tematica` (`id_tematica`)
+    REFERENCES `CUADROS`.`Tematica` (`id_tematica`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_Tematica_has_Departamento_Departamento1`
     FOREIGN KEY (`Departamento_id_departamento`)
-    REFERENCES `mydb`.`Departamento` (`id_departamento`)
+    REFERENCES `CUADROS`.`Departamento` (`id_departamento`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
@@ -100,22 +105,22 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `mydb`.`Censo_has_Departamento`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `mydb`.`Censo_has_Departamento` ;
+DROP TABLE IF EXISTS `CUADROS`.`Censo_has_Departamento` ;
 
-CREATE TABLE IF NOT EXISTS `mydb`.`Censo_has_Departamento` (
+CREATE TABLE IF NOT EXISTS `CUADROS`.`Censo_has_Departamento` (
   `Censo_id_censo` INT NOT NULL,
   `Departamento_id_departamento` VARCHAR(3) NOT NULL,
   PRIMARY KEY (`Censo_id_censo`, `Departamento_id_departamento`),
-  INDEX `fk_Censo_has_Departamento_Departamento1_idx` (`Departamento_id_departamento` ASC) VISIBLE,
-  INDEX `fk_Censo_has_Departamento_Censo1_idx` (`Censo_id_censo` ASC) VISIBLE,
+  INDEX `fk_Censo_has_Departamento_Departamento1_idx` (`Departamento_id_departamento` ASC) ,
+  INDEX `fk_Censo_has_Departamento_Censo1_idx` (`Censo_id_censo` ASC) ,
   CONSTRAINT `fk_Censo_has_Departamento_Censo1`
     FOREIGN KEY (`Censo_id_censo`)
-    REFERENCES `mydb`.`Censo` (`id_censo_anio`)
+    REFERENCES `CUADROS`.`Censo` (`id_censo_anio`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_Censo_has_Departamento_Departamento1`
     FOREIGN KEY (`Departamento_id_departamento`)
-    REFERENCES `mydb`.`Departamento` (`id_departamento`)
+    REFERENCES `CUADROS`.`Departamento` (`id_departamento`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
