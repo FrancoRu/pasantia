@@ -64,8 +64,6 @@ CREATE TABLE IF NOT EXISTS `CUADROS`.`Cuadro` (
   `cuadro_id_tematica` CHAR NOT NULL,
   `cuadro_id_departamento` VARCHAR(3) NOT NULL,
   `cuadro_descripcion` VARCHAR(255) NOT NULL,
-  `cuadro_titulo` VARCHAR(255) NOT NULL,
-  `url_cuadro` VARCHAR(255) NOT NULL,
   PRIMARY KEY (`id_cuadro`, `cuadro_id_tematica`, `cuadro_id_departamento`),
   INDEX `id_tematica_idx` (`cuadro_id_tematica` ASC),
   CONSTRAINT `fk_cuadro_id_tematica`
@@ -77,6 +75,26 @@ CREATE TABLE IF NOT EXISTS `CUADROS`.`Cuadro` (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION
 ) ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `mydb`.``CuadroTitulo``
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `CUADROS`.`Cuadro_has_Titulo` (
+  `id_cuadro_titulo` INT NOT NULL,
+  `cuadro_titulo` VARCHAR(255) NOT NULL,
+  `url_cuadro` VARCHAR(255) NOT NULL,
+  `cuadro_id` INT NOT NULL,
+  PRIMARY KEY (`id_cuadro_titulo`),
+  CONSTRAINT `fk_cuadro_titulo_id_cuadro`
+    FOREIGN KEY (`cuadro_id`)
+    REFERENCES `CUADROS`.`Cuadro`(`id_cuadro`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION
+) ENGINE = InnoDB;
+
+
+
 
 -- -----------------------------------------------------
 -- Table `mydb`.`Tematica_has_Departamento`

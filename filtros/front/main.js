@@ -1,11 +1,12 @@
 let departament = document.getElementById('departament')
-let survey = document.getElementById('survey')
-let listTheme = document.getElementById('theme')
+let survey = document.getElementById('theme')
+let listTheme = document.getElementById('quadro')
 let button = document.getElementById('submit')
 
 button.addEventListener('submit', (event) => {
 	event.preventDefault()
 })
+
 //inicio de script
 function init() {
 	jurisdicciones()
@@ -36,9 +37,9 @@ function themes() {
 	fetch('./utils/survey.json')
 		.then((response) => response.json())
 		.then((data) => {
-			let module = document.getElementById('survey').value
+			let module = document.getElementById('theme').value
 			let theme = data.modules.find((element) => element.value === module).tema
-
+			console.log(theme)
 			addOption(theme, listTheme)
 		})
 		.catch((error) => console.error('Error:', error))

@@ -1,0 +1,204 @@
+
+
+// require_once('../services/getCuadroManagment.php');
+
+// class CuadroController
+// {
+//   private static $instance;
+//   private $cuadro;
+
+//   private function __construct()
+//   {
+//     $this->cuadro = getCuadroManagment::getInstance();
+//   }
+
+//   public static function getInstance()
+//   {
+//     if (self::$instance === null) {
+//       self::$instance = new CuadroController();
+//     }
+//     return self::$instance;
+//   }
+
+//   public function getQuadro()
+//   {
+//     $args = array(
+//       'censo' => $_GET['censo'],
+//       'departament' => $_GET['departament'],
+//       'theme' => $_GET['theme'],
+//       'quadro' => $_GET['quadro']
+//     );
+
+//     $filteredArgs = array_filter($args, function ($value) {
+//       return $value !== 'Todos';
+//     });
+
+//     $res = $this->cuadro->searchCuadro($filteredArgs);
+
+//     $jsonResult = json_encode($res);
+
+//     header('Content-Type: application/json');
+
+//     echo $jsonResult;
+//   }
+
+// }
+
+// class DBManager
+// {
+//     private static $instance;
+//     private $server;
+//     private $username;
+//     private $password;
+//     private $database;
+
+//     private function __construct()
+//     {
+//         $this->server = $_ENV['PORT'];
+//         $this->username = $_ENV['LOGIN'];
+//         $this->password = $_ENV['PASSWORD'];
+//         $this->database = $_ENV['DB_NAME'];
+//     }
+
+//     public static function getInstance()
+//     {
+//         if (self::$instance === null) {
+//             self::$instance = new self();
+//         }
+//         return self::$instance;
+//     }
+
+//     public function connection()
+//     {
+//         try {
+//             $conn = new mysqli($this->server, $this->username, $this->password, $this->database);
+//             return $conn;
+//         } catch (Exception $e) {
+//             die('Connection failed: ' . $e->getMessage());
+//         }
+//     }
+// }
+
+
+
+
+// require_once 'DB-Manager.php';
+
+// class getCuadroManagement
+// {
+//     private static $instance;
+//     private $db;
+//     private $conn;
+
+//     private function __construct()
+//     {
+//         $this->db = DBManager::getInstance();
+//         $this->conn = $this->db->connect();
+//     }
+
+//     public static function getInstance()
+//     {
+//         if (self::$instance === null) {
+//             self::$instance = new self();
+//         }
+//         return self::$instance;
+//     }
+
+//     private function cleanParam($args)
+//     {
+//         $newArgs = array();
+//         foreach ($args as $key => $arg) {
+//             $newArgs[$key] = mysqli_real_escape_string($this->conn, $arg);
+//         }
+
+//         return $newArgs;
+//     }
+
+//     private function getQuery($args)
+//     {
+//         $query = "SELECT CT.url_cuadro, CT.cuadro_titulo
+//         FROM Cuadro Cu
+//         JOIN Departamento D ON D.id_departamento = CeDe.Departamento_id_departamento
+//         JOIN Censo_has_Departamento CeDe ON CeDe.Censo_id_censo = Ce.id_censo_anio
+//         JOIN Censo Ce ON CeDe.Censo_id_censo = Ce.id_censo_anio
+//         JOIN Tematica_has_Departamento TD ON TD.Departamento_id_departamento = D.id_departamento
+//         JOIN Tematica T ON T.id_tematica = Cu.cuadro_id_tematica
+//         JOIN Cuadro_has_Titulo CT ON CT.cuadro_id = Cu.id_cuadro";
+//         $conditions = array();
+
+//         foreach ($args as $key => $arg) {
+//             $conditions[] = $this->getCondition($key);
+//         }
+
+//         if (!empty($conditions)) {
+//             $query .= " WHERE " . implode(" AND ", $conditions);
+//         }
+
+//         return $query;
+//     }
+
+//     private function getCondition($arg)
+//     {
+//         switch ($arg) {
+//             case "censo":
+//                 return "Ce.id_censo_anio = ?";
+//             case "departament":
+//                 return "D.nombre_departamento = ?";
+//             case "theme":
+//                 return "T.tematica_descripcion = ?";
+//             case "quadro":
+//                 return "Cu.cuadro_descripcion = ?";
+//             default:
+//                 throw new Exception('Incorrect number of arguments');
+//         }
+//     }
+
+//     private function searchQuadro($args)
+//     {
+//         $cleanedArgs = $this->cleanParam($args);
+
+//         $query = $this->getQuery($cleanedArgs);
+
+//         $stmt = $this->conn->prepare($query);
+
+//         $types = str_repeat('s', count($cleanedArgs));
+
+//         $values = $cleanedArgs;
+
+//         array_unshift($values, $types);
+
+//         call_user_func_array(array($stmt, 'bind_param'), $values);
+
+//         $stmt->execute();
+
+//         return $stmt->get_result();
+//     }
+
+//     private function getArrayQuadros($result)
+//     {
+//         $cuadros = array();
+//         while ($row = $result->fetch_assoc()) {
+//             $cuadros[] = array(
+//                 'url_cuadro' => $row['url_cuadro'],
+//                 'cuadro_titulo' => $row['cuadro_titulo']
+//             );
+//         }
+
+//         return $cuadros;
+//     }
+
+//     public function getQuadro($args)
+//     {
+//         return $this->getArrayQuadros($this->searchQuadro($args));
+//     }
+// }
+
+// Ejemplo de uso:
+//$manager = getCuadroManagement::getInstance();
+//$args = array(
+//    'censo' => '2022',
+//    'departament' => 'Some Department',
+//    'theme' => 'Some Theme',
+//    'quadro' => 'Some Quadro'
+//);
+//$quadros = $manager->getQuadro($args);
