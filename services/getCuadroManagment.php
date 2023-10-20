@@ -81,7 +81,7 @@ class QuadroQuery implements QueryInterface
         switch ($arg) {
             case "censo":
                 return "Ce.id_censo_anio = ?";
-            case "departament":
+            case "department":
                 return "D.nombre_departamento = ?";
             case "theme":
                 return "T.tematica_descripcion = ?";

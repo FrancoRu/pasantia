@@ -14,10 +14,10 @@ class MySQLDatabase implements DatabaseInterface
 
     public function __construct()
     {
-        $this->server = $_ENV['PORT'];
-        $this->username = $_ENV['USERNAME'];
-        $this->password = $_ENV['PASSWORD'];
-        $this->database = $_ENV['DATABASE'];
+        $this->server = 'localhost';
+        $this->username = 'dgec_ccnphv';
+        $this->password = 'SNJ2r31p';
+        $this->database = 'dgec_ccnphv';
     }
 
     public function connect()

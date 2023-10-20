@@ -42,7 +42,7 @@ try {
                     <div class="text">
                         <p>
                             En esta sección, se muestran los resultados del Censo Nacional
-                            2010 a nivel provincial y por departamentos, con la adición de
+                            2010 a nivel provincial y por departmentos, con la adición de
                             datos provisionales del Censo 2022. Puedes buscar información
                             según área geográfica, unidad de relevamiento y tema de interés.
                         </p>
@@ -59,9 +59,9 @@ try {
                         </label>
                     </fieldset>
                     <fieldset>
-                        <label for="departament">
+                        <label for="department">
                             Unidad geográfica : <br />
-                            <select id="departament" name="departament"></select>
+                            <select id="department" name="department"></select>
                         </label>
                     </fieldset>
                     <fieldset>

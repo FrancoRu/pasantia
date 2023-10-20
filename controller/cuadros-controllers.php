@@ -17,7 +17,7 @@ class CuadroController
   {
     $args = [
       'censo' => $_GET['censo'],
-      'departament' => $_GET['departament'],
+      'department' => $_GET['department'],
       'theme' => $_GET['theme'],
       'quadro' => $_GET['quadro'],
     ];

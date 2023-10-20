@@ -1,4 +1,4 @@
-let departament = document.getElementById('departament')
+let department = document.getElementById('department')
 let survey = document.getElementById('theme')
 let listTheme = document.getElementById('quadro')
 let button = document.getElementById('submit')
@@ -24,11 +24,11 @@ function surveys() {
 }
 //carga de jurisdicciones
 function jurisdicciones() {
-	fetch('./utils/departament.json')
+	fetch('./utils/department.json')
 		.then((response) => response.json())
 		.then((data) => {
-			var departaments = data.departaments
-			addOption(departaments, departament)
+			var departments = data.departments
+			addOption(departments, department)
 		})
 		.catch((error) => console.error('Error:', error))
 }
