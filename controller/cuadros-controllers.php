@@ -1,7 +1,5 @@
 <?php
-
-require_once '../services/getCuadroManagment.php';
-
+require_once './services/getCuadroManagment.php';
 class CuadroController
 {
   private $cuadroManagement;

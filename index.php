@@ -1,13 +1,9 @@
 <?php
-require_once './services/DB-Manager.php';
 session_start();
+require_once './services/getCuadroManagment.php';
+header('Content-Type: text/html; charset=UTF-8');
 //require_once './controller/cuadros-controllers.php';
-try {
-    DBManagerFactory::getInstance()->createDatabase();
-    $_SESSION['exito'] = 'Conexion exitosa';
-} catch (Exception $e) {
-    echo $e->getMessage();
-}
+
 //$controller  = new CuadroController();
 
 //$controller->getQuadro();
@@ -48,7 +44,7 @@ try {
                         </p>
                     </div>
                 </div>
-                <form method="get" action="../back/index.php" id="form">
+                <form method="get" action="prueba.php" id="form" accept-charset="UTF-8">
                     <fieldset>
                         <label for="censo">
                             Año: <br />

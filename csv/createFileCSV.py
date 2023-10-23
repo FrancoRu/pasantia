@@ -1,5 +1,5 @@
 import json
-
+import csv
 
 with open('../utils/department.json', encoding='utf-8') as depJSON:
     depData = json.load(depJSON)
@@ -18,24 +18,33 @@ with open('../utils/censos.json', encoding='utf-8') as cenJSON:
 insertTitle = []
 themes = themeData['modules']
 tittles = titData['temas']
+id_max = 0
+
+def idMax():
+    count = 1
+    for element in insertTitle:
+        if element['id'] >= count:
+            count = element['id'] + 1
+    return count
 
 for theme in themes:
     for quadro in theme['tema']:
         for element in quadro['array']:
             for title in tittles:
-                if theme['value'] == title['value'] :
+                if theme['value'] == title['value']:
                     for tit in title['array']:
                         if tit['id'] == element:
                             insertTitle.append({
+                                "id": idMax(),
                                 "id_quadro": quadro['id_quadro'],
                                 "id_title": tit['id'],
-                                "title":  tit['value'],
+                                "title": tit['value'],
                                 "id_theme": theme['id']
-                                })
+                            })
 
 with open("titles.csv", mode='w', newline='', encoding='utf-8') as archivo:
         for titles in insertTitle:
-            linea = f"{titles['id_title']};{titles['id_quadro']};{titles['id_theme']};{titles['title']}\n"
+            linea = f"{titles['id']};{titles['id_title']};{titles['id_quadro']};{titles['id_theme']};{titles['title']}\n"
             archivo.write(linea)
 
 #Creacion de csv para las provincias
@@ -112,12 +121,15 @@ with open("cuadro_has_tematica.csv", mode='w', newline='', encoding='utf-8') as 
             archivo.write(linea)
 
 #Creacion del csv de relaciones entre censo y departmentos
-
+count = 1
 with open("department_has_censo.csv", mode='w', newline='', encoding='utf-8') as archivo:
         for element in cenData['censos']:
             for dep in depData['departments']:
-                linea = f"{element['anio']};{dep['id']}\n"
+                linea = f"{count};{element['anio']};{dep['id']}\n"
                 archivo.write(linea)
+                count += 1
 
-#Creacion del csv registro
+data = {
+     "register": []
+}
 
