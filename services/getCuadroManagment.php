@@ -26,11 +26,11 @@ class QuadroQuery implements QueryInterface
 
         $stmt = $this->stmt->prepare($query); //Preparo la misma para ser ejecutada
         $types = str_repeat('s', count($cleanedArgs));
-        $values = $cleanedArgs;
+        $values = $this->transformArray($cleanedArgs);
 
         array_unshift($values, $types);
 
-        call_user_func_array(array($stmt, 'bind_param'), $values); //Preparo la parametrizacion
+        $stmt->bind_param(...$values); //Preparo la parametrizacion
 
         $stmt->execute(); //Ejecuto la query
 
@@ -48,26 +48,34 @@ class QuadroQuery implements QueryInterface
         return $newArgs;
     }
 
+    private function transformArray($args)
+    {
+        $newArgs = array();
+        foreach ($args as $arg) {
+            array_push($newArgs, $arg);
+        }
+        return $newArgs;
+    }
+
     //Funcion que funciona como query dinámica
     private function getQuery($args)
     {
-        $query = "SELECT distinct R.url_cuadro_xlsx, TC.titulo_cuadro_titulo FROM registro R
-        JOIN titulo_cuadro TC
-        ON TC.ID = R.titulo_cuadro_id_registro
-        JOIN cuadro C
-        ON C.id_cuadro = TC.Cuadro_id
-        JOIN tematica_has_cuadro THC
-        ON THC.cuadro_id_cuadro = C.id_cuadro
-        JOIN tematica TEM
-        ON TEM.id_tematica = THC.tematica_id_tematica
-        JOIN censo_has_departamento CHD
-        ON CHD.id_censo_has_departamento = R.Censo_has_departamento_id_registro
-        JOIN departamento DEP
-        ON DEP.id_departamento = CHD.Departamento_id_departamento
-        JOIN censo CEN
-        ON CEN.id_censo_anio = CHD.Censo_id_censo";
+        $query = "SELECT R.url_cuadro_xlsx, TC.titulo_cuadro_titulo, 
+        DEP.nombre_departamento, CONCAT(TC.id_titulo_cuadro,TC.Tematica_id) AS cuadro_tematica 
+        FROM registro R
+		INNER JOIN titulo_cuadro TC 
+		ON TC.ID = R.titulo_cuadro_id_registro
+		INNER JOIN cuadro C 
+		ON C.id_cuadro = TC.Cuadro_id
+		INNER JOIN tematica TEM 
+		ON TEM.id_tematica = TC.Tematica_id
+		INNER JOIN censo_has_departamento CHD 
+		ON CHD.id_censo_has_departamento = R.Censo_has_departamento_id_registro
+		INNER JOIN departamento DEP 
+		ON DEP.id_departamento = CHD.Departamento_id_departamento
+		INNER JOIN censo CEN 
+		ON CEN.id_censo_anio = CHD.Censo_id_censo";
         $conditions = array();
-
         //Recorro todos los elementos de $args para saber que condiciones se agregaran
         foreach ($args as $key => $arg) {
             $conditions[] = $this->getCondition($key);
@@ -78,6 +86,7 @@ class QuadroQuery implements QueryInterface
             $query .= " WHERE " . implode(" AND ", $conditions);
         }
 
+        $query .= " ORDER BY DEP.nombre_departamento, TC.id_titulo_cuadro ASC;";
         return $query;
     }
 
@@ -127,8 +136,10 @@ class CuadroManagement implements CuadroManagerInterface
         $cuadros = array();
         while ($row = $result->fetch_assoc()) {
             $cuadros[] = array(
-                'url_cuadro' => $row['url_cuadro'],
-                'cuadro_titulo' => $row['cuadro_titulo']
+                'url_cuadro' => $row['url_cuadro_xlsx'],
+                'cuadro_titulo' => $row['titulo_cuadro_titulo'],
+                'departamento_cuadro' => $row['nombre_departamento'],
+                'cuadro_tematica' => $row['cuadro_tematica']
             );
         }
 

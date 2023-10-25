@@ -1,0 +1,159 @@
+{
+	"temas": [
+		{
+			"value": "hogar",
+			"array": [
+				{
+					"value": "Hogares por material predominante de los pisos de la vivienda por área de gobierno local, fracción y radio censal. ",
+					"id": 1
+				},
+				{
+					"value": "Hogares habitados según tenencia de baño por departamento, área de gobierno local, fracción y radio censal",
+					"id": 2
+				},
+				{
+					"value": "Hogares con baño según desagüe de inodoro por departamento, área de gobierno local, fracción y radio censal",
+					"id": 3
+				},
+				{
+					"value": "Hogares con baño de uso exclusivo por departamento, área de gobierno local, fracción y radio censal. Año 2010.",
+					"id": 4
+				},
+				{
+					"value": "Hogares habitados con baño según tengan botón, cadena o mochila para limpieza del inodoro por departamento, área de gobierno local, fracción y radio censal",
+					"id": 5
+				},
+				{
+					"value": "Hogares habitados según procedencia del agua para beber y cocinar por departamento, área de gobierno local, fracción y radio censal",
+					"id": 6
+				},
+				{
+					"value": "Hogares habitados según combustible para cocinar por departamento, área de gobierno local, fracción y radio censal",
+					"id": 7
+				},
+				{
+					"value": "Hogares habitados según cantidad de personas por cuarto por departamento, área de gobierno local, fracción y radio censal",
+					"id": 8
+				},
+				{
+					"value": "Hogares habitados según régimen de tenencia por departamento, área de gobierno local, fracción y radio censal",
+					"id": 9
+				},
+				{
+					"value": "Hogares habitados según cumplan algún indicador NBI por departamento, área de gobierno local,  fracción y radio censal",
+					"id": 10
+				},
+				{
+					"value": "Hogares habitados según material de la cubierta exterior del techo por departamento, área de gobierno local, fracción y radio censal",
+					"id": 11
+				},
+				{
+					"value": "Hogares habitados según revestimiento interior o cielorraso del techo por departamento, área de gobierno local, fracción y radio censal",
+					"id": 12
+				},
+				{
+					"value": "Hogares habitados según tenencia de agua por departamento, área de gobierno local, fracción y radio censal",
+					"id": 13
+				},
+				{
+					"value": "Hogares habitados según tenga o no celular por departamento, área de gobierno local, fracción y radio censal",
+					"id": 15
+				},
+				{
+					"value": "Hogares habitados según tenga o no computadora por departamento, área de gobierno local, fracción y radio censal",
+					"id": 16
+				},
+				{
+					"value": "Hogares habitados según tenga o no heladera por departamento, área de gobierno local, fracción y radio censal",
+					"id": 17
+				},
+				{
+					"value": "Hogares habitados según tenga o no teléfono de línea por departamento, localidad, fracción y radio censal",
+					"id": 18
+				}
+			]
+		},
+		{
+			"value": "vivienda",
+			"array": [
+				{
+					"value": "Viviendas según tipo de vivienda agrupada por departamento, área de gobierno local, fracción y radio censal",
+					"id": 1
+				},
+				{
+					"value": "Viviendas particulares según tipo de vivienda por departamento, área de gobierno local, fracción y radio censal",
+					"id": 2
+				},
+				{
+					"value": "Viviendas colectivas según tipo de vivienda por departamento, área de gobierno local y fracción censal",
+					"id": 3
+				},
+				{
+					"value": "Viviendas particulares habitadas según calidad constructiva por departamento, área de gobierno local, fracción y radio censal",
+					"id": 4
+				},
+				{
+					"value": "Viviendas particulares habitadas según calidad de las conexiones a servicios básicos por departamento, área de gobierno local, fracción y radio censal",
+					"id": 5
+				},
+				{
+					"value": "Viviendas particulares habitadas según calidad de los materiales por departamento, área de gobierno local, fracción y radio censal",
+					"id": 6
+				},
+				{
+					"value": "Viviendas particulares según condición de ocupación por departamentos, área de gobierno local, fracción y radio censal",
+					"id": 7
+				}
+			]
+		},
+		{
+			"value": "poblacion",
+			"array": [
+				{
+					"value": "Población según sexo por departamento, por área de gobierno local, por fracción y radio censal",
+					"id": 1
+				},
+				{
+					"value": "Población según nacimiento en el país o en el extranjero por departamento, área de gobierno local, fracción y radio censal",
+					"id": 2
+				},
+				{
+					"value": "Población según grandes grupos de edad por departamentos, área de gobierno local, fracción y radio censal",
+					"id": 3
+				},
+				{
+					"value": "Total de población según grupos quinquenales de edad por departamento, área de gobierno local, fracción y radio censal",
+					"id": 4
+				},
+				{
+					"value": "Población en hogares según relación de parentesco con el jefe por departamento, localidad, área de gobierno local y radio censal",
+					"id": 5
+				},
+				{
+					"value": "Población de 14 años y más por condición de actividad por departamento, área de gobierno local, fracción y radio censal",
+					"id": 6
+				},
+				{
+					"value": "Población de 10 años y más sepan o no leer y escribir por departamento, área de gobierno local, fracción y radio censal",
+					"id": 7
+				},
+				{
+					"value": "Población de 5 años y más que asistió según nivel educativo que cursó y si terminó el nivel por departamento, área de gobierno local, fracción y radio censal",
+					"id": 8
+				},
+				{
+					"value": "Población de 3 años y más según condición de asistencia escolar por departamento, área de gobierno local, fracción y radio censal",
+					"id": 9
+				},
+				{
+					"value": "Población de 3 años y más que asiste según nivel educativo que cursa o cursó por departamento, área de gobierno local, fracción y radio censal",
+					"id": 10
+				},
+				{
+					"value": "Población de 3 años y más según utiliza o no computadora por departamento, área de gobierno local, fracción y radio censal",
+					"id": 11
+				}
+			]
+		}
+	]
+}

@@ -1,0 +1,18 @@
+* {
+	padding: 0px;
+	margin: 0px;
+	font-family: 'Montserrat', sans-serif;
+}
+section {
+	display: flex;
+	justify-content: flex-end;
+}
+
+main {
+	max-width: 50%;
+}
+
+table {
+	max-width: 100%;
+	word-wrap: break-word;
+}
