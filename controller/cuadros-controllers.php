@@ -17,14 +17,14 @@ class CuadroController
   //En estte punto no se sanitizan si no que eso lo hara el servicio
   public function getQuadro()
   {
-    if (!isset($_GET['censo']) && !isset($_GET['department']) && !isset($_GET['theme']) && !isset($_GET['quadro'])) {
+    if (!isset($_POST['censo']) && !isset($_POST['department']) && !isset($_POST['theme']) && !isset($_POST['quadro'])) {
       return json_encode($this->errorResponse, JSON_UNESCAPED_UNICODE);
     }
     $args = [
-      'censo' => $_GET['censo'],
-      'department' => $_GET['department'],
-      'theme' => $_GET['theme'],
-      'quadro' => $_GET['quadro'],
+      'censo' => $_POST['censo'],
+      'department' => $_POST['department'],
+      'theme' => $_POST['theme'],
+      'quadro' => $_POST['quadro'],
     ];
     // Filtra los argumentos para eliminar valores 'Todos'.
     $filteredArgs = array_filter($args, function ($value) {

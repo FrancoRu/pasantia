@@ -1,15 +1,15 @@
 import json
 import csv
 
-cuadro = 'Censo 2010-cuadros por muni frac y radio'
+cuadro = 'Censo_2010-cuadros_por_muni_frac_y_radio'
 
-with open('../utils/department.json', encoding='utf-8') as depJSON:
+with open('../utils/public/department.json', encoding='utf-8') as depJSON:
     depData = json.load(depJSON)
 
-with open('../utils/survey.json', encoding='utf-8') as themeJSON:
+with open('../utils/private/survey.json', encoding='utf-8') as themeJSON:
     themeData = json.load(themeJSON)
 
-with open('../utils/titles.json', encoding='utf-8') as titJSON:
+with open('../utils/private/titles.json', encoding='utf-8') as titJSON:
     titData = json.load(titJSON)
 
 department_data = []  # Lista para almacenar información de los departmentos
@@ -95,7 +95,7 @@ with open('department_has_censo.csv', 'r', encoding='utf-8') as archivo_csv:
                         "id" : count,
                         "Titulo_cuadro_id_registro": titles['id'],
                         "Censo_has_departamento_id_registro": data[0],
-                        "url_cuadro_xlsx": f"{titles['id_title']}{titles['id_theme']}-FR-{nombreDep(data[2])}.xlsx"
+                        "url_cuadro_xlsx": f"https://www.dgec.gob.ar/buscador/descargas/{cuadro}/{nombreDep(data[2])}/{titles['id_title']}{titles['id_theme']}-FR-{nombreDep(data[2])}.xlsx"
                     })
                     count+=1
 
@@ -107,3 +107,5 @@ with open("register.csv", mode='w', newline='', encoding='utf-8') as archivo:
         for element in dataRegister['register']:
             linea = f"{element['id']};{element['Titulo_cuadro_id_registro']};{element['Censo_has_departamento_id_registro']};{element['url_cuadro_xlsx']}\n"
             archivo.write(linea)
+
+

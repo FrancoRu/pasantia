@@ -7,9 +7,12 @@ form.addEventListener('submit', function (event) {
 	event.preventDefault()
 	handleSubmit()
 		.then((data) => {
-			// Guarda los datos en una variable de sesión del lado del cliente
-			localStorage.setItem('data', JSON.stringify(data))
-			window.open('view.html', '_blank')
+			if (data[0].url_cuadro === '') alert(data[0].cuadro_titulo)
+			else {
+				// Guarda los datos en una variable de sesión del lado del cliente
+				localStorage.setItem('data', JSON.stringify(data))
+				window.open('view.html', '_blank')
+			}
 		})
 		.catch((error) => {
 			console.error('Error:', error)
@@ -18,10 +21,11 @@ form.addEventListener('submit', function (event) {
 
 async function handleSubmit() {
 	const formData = new FormData(form)
+	const url = 'main.php'
 	// Construye la URL con los datos del formulario
-	const url = 'main.php?' + new URLSearchParams(formData).toString()
 	return fetch(url, {
-		method: 'GET',
+		method: 'POST',
+		body: formData,
 	})
 		.then((response) => response.json())
 		.catch((error) => {

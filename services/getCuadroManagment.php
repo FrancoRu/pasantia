@@ -21,20 +21,24 @@ class QuadroQuery implements QueryInterface
     //Funcion principal de busqueda
     public function searchQuadro($args)
     {
-        $cleanedArgs = $this->cleanParam($args); //Limpio lo paramentros de entrada
-        $query = $this->getQuery($cleanedArgs); //Me traigo la query segun los parametros pasados
+        try {
+            $cleanedArgs = $this->cleanParam($args); //Limpio lo paramentros de entrada
+            $query = $this->getQuery($cleanedArgs); //Me traigo la query segun los parametros pasados
+            $statement = $this->stmt->prepare($query); //Preparo la misma para ser ejecutada
 
-        $stmt = $this->stmt->prepare($query); //Preparo la misma para ser ejecutada
-        $types = str_repeat('s', count($cleanedArgs));
-        $values = $this->transformArray($cleanedArgs);
+            if (!$statement) {
+                throw new Exception("Error en la preparación de la consulta SQL.");
+            }
 
-        array_unshift($values, $types);
-
-        $stmt->bind_param(...$values); //Preparo la parametrizacion
-
-        $stmt->execute(); //Ejecuto la query
-
-        return $stmt->get_result(); //Retorno el resultado, ya haya sido exitoso o no 
+            $types = str_repeat('s', count($cleanedArgs)); //Crep un sstring dependiendo de la cantidad de datos a parametrizar
+            $values = $this->transformArray($cleanedArgs); //Lo transformo en un array simple
+            array_unshift($values, $types); //posiciono al frente el tipo de datos de la parametrizacion
+            $statement->bind_param(...$values); //Preparo la parametrizacion
+            $statement->execute(); //Ejecuto la query
+            return $statement->get_result(); //Retorno el resultado, ya haya sido exitoso o no 
+        } catch (Exception $e) {
+            return $e->getMessage();
+        }
     }
 
     //Funcion que elimina todos los caracteres de escape para prevenir SQL injection
@@ -48,6 +52,9 @@ class QuadroQuery implements QueryInterface
         return $newArgs;
     }
 
+    //Transformo de un array asosiativo a uno comun
+    //con el fin de poder usarlo en la funcion bind_param() de msqli
+    //para lograr dinamismo
     private function transformArray($args)
     {
         $newArgs = array();
@@ -60,6 +67,14 @@ class QuadroQuery implements QueryInterface
     //Funcion que funciona como query dinámica
     private function getQuery($args)
     {
+        //La siguiente query devolvera la url donde s encuentra alojado el cuadro
+        //El titulo del cuadro, el nombre de departamento del cual pertenece
+        //y una codificicacion
+        //Ejemplo un posible resultado puede ser:
+        //url:N:\Informatica\FRANCO\Censo 2010-cuadros por muni frac y radio\Colon
+        //titulo: Hogares por material predominante de los pisos de la vivienda por área de gobierno local, fracción y radio censal. Año 2010.
+        //departamento Colón
+        //codificacion: 1H
         $query = "SELECT R.url_cuadro_xlsx, TC.titulo_cuadro_titulo, 
         DEP.nombre_departamento, CONCAT(TC.id_titulo_cuadro,TC.Tematica_id) AS cuadro_tematica 
         FROM registro R
@@ -75,7 +90,12 @@ class QuadroQuery implements QueryInterface
 		ON DEP.id_departamento = CHD.Departamento_id_departamento
 		INNER JOIN censo CEN 
 		ON CEN.id_censo_anio = CHD.Censo_id_censo";
+
+        //Creo un array para determinar que condiciones de busqueda abra
+        //Esto es: si abra o no un WHERE y AND
+
         $conditions = array();
+
         //Recorro todos los elementos de $args para saber que condiciones se agregaran
         foreach ($args as $key => $arg) {
             $conditions[] = $this->getCondition($key);
@@ -86,6 +106,7 @@ class QuadroQuery implements QueryInterface
             $query .= " WHERE " . implode(" AND ", $conditions);
         }
 
+        //Clausula de ordenamiento final para que quede mas facil la busqueda
         $query .= " ORDER BY DEP.nombre_departamento, TC.id_titulo_cuadro ASC;";
         return $query;
     }
@@ -127,10 +148,27 @@ class CuadroManagement implements CuadroManagerInterface
     //Funcion de punto de entrada desde controllers
     public function getQuadro($args)
     {
-        return $this->getArrayQuadros($this->query->searchQuadro($args));
+        $results = $this->query->searchQuadro($args);
+        if ($results instanceof mysqli_result) {
+            $cuadros = $this->getArrayQuadros($results);
+        } else {
+            $cuadros = array(
+                array(
+                    'cuadro_titulo' => 'No se encontraron cuadros con la información proporcionada',
+                    'url_cuadro' => '',
+                    'departamento_cuadro' => '',
+                    'cuadro_tematica' => '',
+                )
+            );
+        }
+        return $cuadros;
     }
 
-    //Devuelve un array asociativo entre la url del cuadro(su ubicacion) y el titulo del mismo
+    //Devuelve un array asociativo entre: 
+    //La url del cuadro(su ubicacion)
+    //El titulo del mismo
+    //EL nombre de departamento
+    //La codificacion del mismo
     private function getArrayQuadros($result)
     {
         $cuadros = array();
