@@ -108,4 +108,3 @@ with open("register.csv", mode='w', newline='', encoding='utf-8') as archivo:
             linea = f"{element['id']};{element['Titulo_cuadro_id_registro']};{element['Censo_has_departamento_id_registro']};{element['url_cuadro_xlsx']}\n"
             archivo.write(linea)
 
-

@@ -1,6 +1,7 @@
 <?php
 require_once './services/getCuadroManagment.php';
-class CuadroController
+require_once './services/tableConstructor.php';
+class QuadroController
 {
   private $cuadroManagement;
   private $errorResponse;
@@ -32,8 +33,12 @@ class CuadroController
     });
 
     $results = $this->cuadroManagement->getQuadro($filteredArgs);
-
-    return json_encode($results, JSON_UNESCAPED_UNICODE);
+    $table = [
+      'title' => ['XLSX', 'Titulo', 'Vista Previa'],
+      'body' => $results
+    ];
+    return json_encode(Construct::getTable($table), JSON_UNESCAPED_UNICODE | JSON_HEX_TAG | JSON_HEX_QUOT);
+    //return json_encode($results, JSON_UNESCAPED_UNICODE);
   }
 }
 

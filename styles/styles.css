@@ -1,196 +1,178 @@
-/* Reset de margen y padding para todos los elementos */
+/* Reset general */
 * {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-/* Fuente principal */
+/* Fuentes */
 body {
-	font-family: 'Montserrat', sans-serif;
+    font-family: 'Montserrat', sans-serif;
+    background-color: #fff;
+    display: flex;
+    justify-content: flex-end;
+    margin: 0;
+    padding: 25px;
+    min-height: 100vh;
+    position: relative;
 }
 
-/* Establecer el fondo y la estructura general */
-body {
-	background-color: #fff;
-	display: flex;
-	justify-content: flex-end;
-	margin: 0;
-	padding: 25px;
-	min-height: 100vh; /* Establecer un alto mínimo para el cuerpo */
-	position: relative;
-}
-
-/* Fondo de pantalla completa */
+/* Fondo de pantalla */
 .svg-container {
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	background-image: url('../img/Fondo-grafica.svg');
-	background-repeat: no-repeat;
-	background-position: center;
-	background-size: cover;
-	z-index: -1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('../resource/img/Fondo-grafica.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    z-index: -1;
 }
 
-/* Barra lateral (aside) */
-aside {
-	width: 50%;
-	min-height: 20%;
-	opacity: 1;
-	position: absolute;
-	bottom: 0;
-	left: 100px;
-	display: flex;
-	align-items: center;
-}
-
-/* Estilos para el contenedor */
+/* Contenedor principal */
 .contenedor {
-	position: relative;
-	width: 100%;
-	height: 100vh; /* Altura de la ventana gráfica */
-	padding: 10px;
+    width: 50%;
+    height: 100vh;
+    padding: 10px;
+    position: relative;
 }
 
-/* Estilos para el logotipo */
+/* Logotipo */
 .logo-dgec {
-	max-width: 100%;
-	height: auto;
-	position: absolute;
-	bottom: 15px; /* Coloca el logotipo a 15px del borde inferior */
-	left: 0;
-	max-height: calc(
-		100% - 15px
-	); /* Ajusta el tamaño máximo en función del espacio disponible */
+    width: 100%;
+    height: auto;
+    position: absolute;
+    bottom: 15px;
+    left: 0;
+    max-height: calc(100% - 15px);
 }
 
 /* Alineación de secciones y márgenes */
 section,
 main {
-	margin-right: 30px;
-	margin-bottom: 30px;
+    margin-right: 30px;
+    margin-bottom: 30px;
 }
 
-/* Ajustes para la sección */
 section {
-	margin-top: 5%;
+    margin-top: 5%;
 }
 
-/* Contenedor de elementos */
-.container {
-	background-image: url('../img/cuadro.svg');
-	background-repeat: no-repeat;
-	background-size: cover;
-	margin-right: 30px;
-	margin-bottom: 10%;
-	display: flex;
-	flex-direction: column;
-	max-width: 500px;
-	text-align: center;
-	justify-content: center;
-	padding: 20px;
-	border: 0.5px solid #979797;
-	border-radius: 1em;
-	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Agrega una sombra */
+/* Estilos para el contenedor principal */
+.custom-container {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #979797;
+    border-radius: 10px;
+    box-shadow: 0px 5px 25px rgba(36, 35, 35, 0.1);
+    background-color: white;
 }
 
 /* Estilos para los selects */
 select {
-	font-family: 'Montserrat ExtraLight';
-	font-size: 14px;
-	letter-spacing: 0px;
-	padding: 5px;
-	text-align: center;
-	box-shadow: inset;
-	width: 100%;
-	background: #ffffff;
-	border: 1px solid #d2d2d2;
-	border-radius: 5px;
-	opacity: 1;
+    font-family: 'Montserrat Light';
+    font-size: 14px;
+    letter-spacing: 0px;
+    padding: 5px;
+    text-align: left;
+    box-shadow: inset;
+    width: 100%;
+    background: #ffffff;
+    border: 1px solid #d2d2d2;
+    border-radius: 5px;
+    opacity: 1;
 }
 
-/* Estilos para los fieldsets y etiquetas */
-fieldset {
-	display: flex;
-	flex-direction: row;
-	align-items: flex-start;
-	border: none;
-}
-
-label {
-	margin-right: 10px;
-	width: 100%;
-	font-weight: bold;
-	text-align: left;
-	font-size: 16px;
-	letter-spacing: 0px;
-	color: #707070;
-}
-
-/* Estilos para títulos y texto */
+/* Títulos y texto */
 .title-header {
-	text-align: left;
-	font-size: 18px;
-	letter-spacing: 0px;
-	color: #39475b;
+    text-align: left;
+    font-size: 18px;
+    letter-spacing: 0px;
+    color: #39475b;
 }
 
 .text {
-	padding: 10px;
-	text-align: left;
-	font-size: 13px;
-	letter-spacing: 0px;
+    padding: 10px;
+    text-align: left;
+    font-size: 13px;
+    letter-spacing: 0px;
 }
 
 h1 {
-	font-weight: bold;
-	font-size: 24px;
-	letter-spacing: 1.85px;
-	padding: 10px;
+    font-weight: bold;
+    font-size: 24px;
+    letter-spacing: 1.85px;
+    padding: 10px;
 }
 
 h2 {
-	padding-left: 10px;
-	font-weight: bold;
-	font-size: 18px;
-	letter-spacing: 0px;
+    padding-left: 10px;
+    font-weight: bold;
+    font-size: 18px;
+    letter-spacing: 0px;
 }
 
 p {
-	font-size: 13px;
-	letter-spacing: 0px;
+    font-size: 13px;
+    letter-spacing: 0px;
 }
 
 /* Estilos para el botón */
 button {
-	border-radius: 20px;
-	padding: 10px;
-	width: 30%;
-	margin-left: 60%;
-	text-align: center;
-	letter-spacing: 0px;
-	color: #ffffff;
-	background: #acc95b;
-	box-shadow: 0px 5px 20px #3b7cff33;
-	border: 0.5px solid #e5e9ee;
-	opacity: 1;
-	cursor: pointer;
+    border-radius: 20px;
+    padding: 10px;
+    width: 100%; /* Ancho del 100% del contenedor */
+    text-align: center;
+    letter-spacing: 0px;
+    color: #ffffff;
+    background: #acc95b;
+    box-shadow: 0px 5px 20px #2d2d2e33;
+    border: 0.5px solid #e5e9ee;
+    opacity: 1;
+    cursor: pointer;
+    margin-left: auto;
 }
 
 /* Alineación de etiquetas de formulario */
 form label {
-	display: block;
-	margin-bottom: 5px;
+    display: block;
+    margin-bottom: 5px;
 }
 
-/* Imagen de carga */
+/* Estilos para el contenedor de carga */
 .charge {
-	width: 100%;
-	height: 40px;
-	background-image: url('../img/Personas.svg');
-	background-size: contain;
-	background-repeat: no-repeat;
+    width: 75%;
+    height: 40px;
+    margin-top: 32px;
+    display: flex;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    clear: both;
+}
+
+.charge img {
+    width: 100%;
+}
+
+/* Clase personalizada para el color del botón */
+.btn-custom {
+    background-color: #acc95b !important;
+    border-color: #acc95b !important;
+    color: #ffffff !important;
+    display: block;
+    margin-top: 32px;
+}
+
+/* Estilos para el recuadro adicional */
+.additional-info {
+    background-color: #f2f2f2;
+    padding: 20px;
+    width: 30%;
+    margin-left: 20px;
+    border-radius: 8px;
+    float: right;
 }

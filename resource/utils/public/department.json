@@ -1,5 +1,6 @@
 {
 	"departments": [
+		{ "value": "Entre Rios", "id": "30" },
 		{ "value": "Todos", "id": "000" },
 		{ "value": "Colón", "id": "008" },
 		{ "value": "Concordia", "id": "015" },

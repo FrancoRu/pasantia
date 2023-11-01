@@ -1,6 +1,6 @@
 <?php
 
-require_once 'DB-Manager.php';
+require_once 'DBManager.php';
 // Definicion de una interfaz para abstraer la consulta de datos.
 interface QueryInterface
 {
@@ -149,7 +149,7 @@ class CuadroManagement implements CuadroManagerInterface
     public function getQuadro($args)
     {
         $results = $this->query->searchQuadro($args);
-        if ($results instanceof mysqli_result) {
+        if ($results instanceof mysqli_result && isset($results)) {
             $cuadros = $this->getArrayQuadros($results);
         } else {
             $cuadros = array(

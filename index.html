@@ -1,75 +1,128 @@
-
 <!DOCTYPE html>
 <html lang="es">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link
+			rel="stylesheet"
+			href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.css"
+		/>
+		<script
+			src="https://code.jquery.com/jquery-3.7.1.min.js"
+			integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+			crossorigin="anonymous"
+		></script>
+		<script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.js"></script>
+		<link rel="stylesheet" href="app/../styles/styles.css" />
+		<link
+			href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+			rel="stylesheet"
+			integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+			crossorigin="anonymous"
+		/>
+		<title>DGEyC</title>
+		<style>
+			body {
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+			}
 
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script src="main.js" defer></script>
-    <link rel="stylesheet" href="./styles/styles.css" />
-    <title>DGEyC</title>
-</head>
+			.contenedor {
+				order: 2;
+				margin-left: 20px;
+			}
 
-<body>
-    <div class="svg-container"></div>
-    <div class="contenedor">
-        <!-- Se imagen del logotipo aquí usando una ruta relativa y la clase "logo-dgec" -->
-        <img src="img/Logo-DGEyC.svg" alt="Logotipo de DGEyC" class="logo-dgec">
-    </div>
-    </div>
-    <section>
-        <main>
-            <div class="container">
-                <div class="header-form">
-                    <div class="title-header">
-                        <h1>Buscador de Cuadros</h1>
-                        <h2>Censos 2010-2022</h2>
-                    </div>
-                    <div class="text">
-                        <p>
-                            En esta sección, se muestran los resultados del Censo Nacional
-                            2010 a nivel provincial y por departmentos, con la adición de
-                            datos provisionales del Censo 2022. Puedes buscar información
-                            según área geográfica, unidad de relevamiento y tema de interés.
-                        </p>
-                    </div>
-                </div>
-                <form id="form" accept-charset="UTF-8">
-                    <fieldset>
-                        <label for="censo">
-                            Año: <br />
-                            <select class="select-form" name="censo">
-                                <option value="2010">2010</option>
-                                <option value="2022">2022</option>
-                            </select>
-                        </label>
-                    </fieldset>
-                    <fieldset>
-                        <label for="department">
-                            Unidad geográfica : <br />
-                            <select class="select-form" id="department" name="department"></select>
-                        </label>
-                    </fieldset>
-                    <fieldset>
-                        <label for="theme">
-                            Unidad de relevamiento: <br />
-                            <select class="select-form" id="theme" name="theme"></select>
-                        </label>
-                    </fieldset>
-                    <fieldset>
-                        <label for="quadro">
-                            Temas: <br />
-                            <select class="select-form" id="quadro" name="quadro"></select>
-                        </label>
-                    </fieldset>
-                    <div class="button-container">
-                        <button type="submit" id="submit">Buscar</button>
-                    </div>
-                </form>
-            </div>
-            <div class="charge"></div>
-        </main>
-    </section>
-</body>
+			main {
+				order: 1;
+			}
+		</style>
+	</head>
 
+	<body>
+		<div class="svg-container"></div>
+		<div class="contenedor">
+			<img
+				src="resource/img/Logo-DGEyC.svg"
+				alt="Logotipo de DGEyC"
+				class="img-fluid logo-dgec"
+			/>
+		</div>
+		<section>
+			<main class="custom-container">
+				<div class="header-form">
+					<div class="title-header">
+						<h1>Buscador de Cuadros</h1>
+						<h2>Censos 2010-2022</h2>
+					</div>
+					<div class="text">
+						<p>
+							En esta sección, se muestran los resultados del Censo Nacional
+							2010 a nivel provincial y por departamentos, con la adición de
+							datos provisionales del Censo 2022. Puedes buscar información
+							según área geográfica, unidad de relevamiento y tema de interés.
+						</p>
+					</div>
+					<form id="form" accept-charset="UTF-8">
+						<div class="mb-3">
+							<label for="censo" class="form-label">Año:</label>
+							<select class="form-select" id="censo" name="censo"></select>
+						</div>
+						<div class="mb-3">
+							<label for="department" class="form-label"
+								>Unidad geográfica:</label
+							>
+							<select
+								class="form-select"
+								id="department"
+								name="department"
+							></select>
+						</div>
+						<div class="mb-3">
+							<label for="theme" class="form-label"
+								>Unidad de relevamiento:</label
+							>
+							<select class="form-select" id="theme" name="theme"></select>
+						</div>
+						<div class="mb-3">
+							<label for="quadro" class="form-label">Temas:</label>
+							<select class="form-select" id="quadro" name="quadro"></select>
+						</div>
+						<div class="button-container">
+							<button
+								type="submit"
+								id="submit"
+								class="btn btn-custom float-end width-auto"
+							>
+								Buscar
+							</button>
+							<div class="charge text-center mt-3">
+								<img src="resource/img/Personas.svg" alt="Carga" />
+							</div>
+						</div>
+					</form>
+				</div>
+			</main>
+		</section>
+		<section class="glosario-section">
+			<div class="additional-info">
+				<h3>Glosario Informativo</h3>
+				<p>
+					Aquí puedes encontrar información detallada sobre los términos y
+					conceptos utilizados en los resultados del censo.
+				</p>
+			</div>
+
+			<article id="contain-table"></article>
+		</section>
+
+		<script
+			src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+			integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+			crossorigin="anonymous"
+		></script>
+		<script src="./js/connect.js" defer></script>
+		<script src="./js/load.js" defer></script>
+		<script src="./js/view.js" defer></script>
+	</body>
 </html>

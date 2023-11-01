@@ -103,6 +103,10 @@
 				{
 					"value": "Viviendas particulares según condición de ocupación por departamentos, área de gobierno local, fracción y radio censal",
 					"id": 7
+				},
+				{
+					"value": "Viviendas particulares según condición de ocupación por departamentos, área de gobierno local, fracción y radio censal",
+					"id": 8
 				}
 			]
 		},
@@ -152,6 +156,22 @@
 				{
 					"value": "Población de 3 años y más según utiliza o no computadora por departamento, área de gobierno local, fracción y radio censal",
 					"id": 11
+				},
+				{
+					"value": "Ranking por Departamento según cantidad total de población. Año 2022",
+					"id": 12
+				},
+				{
+					"value": "Ranking por Departamento según proporción de mujeres en viviendas particulares. Año 2022",
+					"id": 13
+				},
+				{
+					"value": "Población de 3 años y más según utiliza o no computadora por departamento, área de gobierno local, fracción y radio censal",
+					"id": 14
+				},
+				{
+					"value": "Población de 3 años y más según utiliza o no computadora por departamento, área de gobierno local, fracción y radio censal",
+					"id": 15
 				}
 			]
 		}
