@@ -37,9 +37,37 @@ class QuadroController
       'title' => ['XLSX', 'Titulo', 'Vista Previa'],
       'body' => $results
     ];
+    $tableInfo = var_export($table, true);
+
+    error_log("error pachinko " . $tableInfo);
     return json_encode(Construct::getTable($table), JSON_UNESCAPED_UNICODE | JSON_HEX_TAG | JSON_HEX_QUOT);
     //return json_encode($results, JSON_UNESCAPED_UNICODE);
   }
+
+  // public function getSearch()
+  // {
+  //   $args = [
+  //     'censo' => $_GET['censo'],
+  //     'department' => $_GET['department'],
+  //     'theme' => $_GET['theme'],
+  //     'quadro' => $_GET['quadro'],
+  //   ];
+  //   $filteredArgs = array_filter($args, function ($value) {
+  //     return $value !== '';
+  //   });
+  //   $results = $this->cuadroManagement->getSearch($filteredArgs);
+  //   $title = array();
+  //   $title = array();
+  //   foreach ($filteredArgs as $key => $arg) {
+  //     $title[] = $key;
+  //   }
+
+  //   $table = [
+  //     'title' => $title,
+  //     'body' => $results
+  //   ];
+  //   return json_encode(Construct::getTable($table), JSON_UNESCAPED_UNICODE | JSON_HEX_TAG | JSON_HEX_QUOT);
+  // }
 }
 
 // Ejemplo de uso :

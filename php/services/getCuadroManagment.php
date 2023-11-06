@@ -133,6 +133,7 @@ class QuadroQuery implements QueryInterface
 interface CuadroManagerInterface
 {
     public function getQuadro($args);
+    //public function getSearch($args);
 }
 
 // Implementacion de la gestión de Cuadros.
@@ -164,6 +165,20 @@ class CuadroManagement implements CuadroManagerInterface
         return $cuadros;
     }
 
+    // public function getSearch($args)
+    // {
+    //     $results = $this->query->searchResults($args);
+    //     if ($results instanceof mysqli_result && isset($results)) {
+    //         $results = $this->getArrayResults($results);
+    //     } else {
+    //         $result = array(
+    //             array(
+    //                 'find' => 'No se encontraron cuadros con la información proporcionada',
+    //             )
+    //         );
+    //     }
+    //     return $results;
+    // }
     //Devuelve un array asociativo entre: 
     //La url del cuadro(su ubicacion)
     //El titulo del mismo
@@ -183,6 +198,20 @@ class CuadroManagement implements CuadroManagerInterface
 
         return $cuadros;
     }
+    // private function getArrayResults($result)
+    // {
+    //     $results = array();
+    //     while ($row = $result->fetch_assoc()) {
+    //         $results[] = array(
+    //             'url_cuadro' => $row['url_cuadro_xlsx'],
+    //             'cuadro_titulo' => $row['titulo_cuadro_titulo'],
+    //             'departamento_cuadro' => $row['nombre_departamento'],
+    //             'cuadro_tematica' => $row['cuadro_tematica']
+    //         );
+    //     }
+
+    //     return $results;
+    // }
 }
 
 // // Ejemplo de uso:

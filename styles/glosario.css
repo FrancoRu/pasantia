@@ -1,0 +1,42 @@
+.accordion-item {
+	border: 1px solid #ccc;
+	margin: 5px;
+}
+
+.accordion-title {
+	display: flex;
+	flex-wrap: nowrap;
+	flex-direction: row;
+	justify-content: space-between;
+	cursor: pointer;
+	padding: 10px;
+	background-color: #f0f0f0;
+	text-align: left;
+}
+
+.accordion-content {
+	display: none;
+	padding: 10px;
+}
+
+/* Estilos para el recuadro adicional */
+.additional-info {
+	background-color: #f2f2f2;
+	padding: 20px;
+	min-width: 70%;
+	max-width: 70%;
+	border-radius: 1em;
+}
+
+/* Estilos para el recuadro adicional */
+.additional-info h2 {
+	text-align: center;
+}
+/*Logotipo*/
+.logo-dgec {
+	width: 70%;
+	height: auto;
+	bottom: 15px;
+	left: 0;
+	max-height: calc(100% - 15px);
+}

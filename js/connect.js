@@ -6,26 +6,28 @@ window.onload = function () {
 		.then((response) => response.json())
 		.then((data) => {
 			localStorage.setItem('data', JSON.stringify(data))
-			init()
+			//init()
 		})
 		.catch((error) => {
 			console.error('Error', error)
 		})
 }
 
-form.addEventListener('submit', function (event) {
-	event.preventDefault()
-	handleSubmit()
-		.then((data) => {
-			if (data[0].url_cuadro === '') alert(data[0].cuadro_titulo)
-			else {
-				console.log('lanzado')
-				createTable(data)
+$(document).ready(function () {
+	$('form').submit(async function (event) {
+		event.preventDefault()
+		try {
+			const data = await handleSubmit()
+			if (data[0].url_cuadro === '') {
+				alert(data[0].cuadro_titulo)
+			} else {
+				console.log(data)
+				await createTable(data)
 			}
-		})
-		.catch((error) => {
+		} catch (error) {
 			console.error('Error:', error)
-		})
+		}
+	})
 })
 
 async function handleSubmit() {
