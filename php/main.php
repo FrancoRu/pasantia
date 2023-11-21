@@ -1,5 +1,6 @@
 <?php
 require_once './controller/quadroControllers.php';
+require_once './controller/initController.php';
 require 'vendor/autoload.php';
 header('Content-Type: application/json; charset=UTF-8');
 header('Access-Control-Allow-Origin: *');
@@ -28,27 +29,20 @@ if (!isset($_SESSION['state'])) {
         echo json_encode($errorInfo);
     }
 }
-$url = parse_url($_SERVER['HTTP_REFERER']);
 
+
+
+$url = parse_url($_SERVER['HTTP_REFERER']);
 if (
-    $_SERVER['REQUEST_METHOD'] === 'POST' &&
-    $url['path'] === '/buscador/'
+    $_SERVER['REQUEST_METHOD'] === 'POST'
 ) {
+    error_log('entro al post');
     $result = $controller->getQuadro();
     echo $result;
 }
 
 if (
-    $_SERVER['REQUEST_METHOD'] === 'POST' &&
-    $url['path'] === '/buscador/ingreso.html'
+    $_SERVER['REQUEST_METHOD'] === 'GET'
 ) {
-    echo 'hello world';
-}
-
-if (
-    $_SERVER['REQUEST_METHOD'] === 'GET' &&
-    $url['path'] === '/buscador/ingreso.html'
-) {
-    //$result = $controller->getSearch();
-    echo $result;
+    echo InitController::getData();
 }

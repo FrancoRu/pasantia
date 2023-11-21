@@ -12,8 +12,11 @@ function startAnimation() {
 			})
 		})
 		setTimeout(() => {
-			$('#charge').addClass('ocultar')
-			resolve() // Resuelve la Promesa cuando la animación ha terminado
+			$('#charge').addClass('hidden')
+			$('#content-charge').addClass('hidden')
+			$('#img-static').removeClass('hidden')
+			$.notify('Busqueda exitosa', 'success')
+			resolve()
 		}, 2300)
 	})
 }

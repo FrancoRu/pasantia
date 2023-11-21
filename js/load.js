@@ -3,9 +3,35 @@ $(document).ready(function () {
 	const survey = $('#theme')
 	const listTheme = $('#quadro')
 	const censo_anio = $('#censo')
-	//Cara de unidad de relevamiento
+
+	function chargeData() {
+		localStorage.removeItem('body-form')
+		localStorage.removeItem('data')
+		const url = 'buscador/../public.json'
+		fetch(url, {
+			method: 'GET',
+		})
+			.then((response) => response.json())
+			.then((data) => {
+				localStorage.setItem('data', JSON.stringify(data))
+				init()
+			})
+			.catch((error) => {
+				console.error('Error', error)
+			})
+	}
+	//Carga de unidad de relevamiento
 	function surveys(data) {
-		const surveyModules = data.modules
+		const selectedYear = censo_anio.val()
+		const selectedDepa = department.val()
+		const indexYear = findIndexP(data['censos'], selectedYear)
+		const indexDep = findIndexP(
+			data['censos'][indexYear].departments,
+			selectedDepa
+		)
+		const surveyModules =
+			data['censos'][indexYear]['departments'][indexDep].themes
+		sortSelect(surveyModules)
 		addOption(surveyModules, survey)
 	}
 
@@ -18,18 +44,36 @@ $(document).ready(function () {
 	//Carga de jurisdicciones
 	function jurisdicciones(data) {
 		const selectedYear = censo_anio.val()
-		const departments =
-			selectedYear === '2022'
-				? data.departments.filter((element) => element.value === 'Entre Rios')
-				: data.departments.filter((element) => element.value !== 'Entre Rios')
+		const indexYear = findIndexP(data['censos'], selectedYear)
+		const departments = data['censos'][indexYear].departments
+		sortSelect(departments)
 		addOption(departments, department)
 	}
 
 	//Carga de temas
 	function themes(data) {
-		const module = survey.val()
-		const theme = data.modules.find((element) => element.value === module).tema
+		const selectedYear = censo_anio.val()
+		const selectedDepa = department.val()
+		const selectedTheme = survey.val()
+		const indexYear = findIndexP(data['censos'], selectedYear)
+		const indexDep = findIndexP(
+			data['censos'][indexYear].departments,
+			selectedDepa
+		)
+		const indexTheme = findIndexP(
+			data['censos'][indexYear]['departments'][indexDep].themes,
+			selectedTheme
+		)
+		const theme =
+			data['censos'][indexYear]['departments'][indexDep]['themes'][indexTheme]
+				.quadros
+
+		sortSelect(theme)
 		addOption(theme, listTheme)
+	}
+
+	function findIndexP(data, value) {
+		return data.findIndex((element) => element.value == value)
 	}
 
 	// Agregar opciones a los select
@@ -56,20 +100,40 @@ $(document).ready(function () {
 	}
 
 	// Cargar la escucha de eventos de cambio
-	survey.on('change', function (event) {
-		event.preventDefault()
-		removeChild(listTheme)
-		data = localStorage.getItem('data')
-		themes(JSON.parse(data))
-	})
 
 	censo_anio.on('change', function (event) {
 		event.preventDefault()
-		removeChild(department)
-		data = localStorage.getItem('data')
-		jurisdicciones(JSON.parse(data))
+		change(jurisdicciones, department)
 	})
 
-	// Llama a la función init al cargar la página
-	init()
+	department.on('change', function (event) {
+		event.preventDefault()
+		change(surveys, survey)
+	})
+
+	survey.on('change', function (event) {
+		event.preventDefault()
+		change(themes, listTheme)
+	})
+
+	function change(fx, remove) {
+		removeChild(remove)
+		data = localStorage.getItem('data')
+		fx(JSON.parse(data))
+	}
+
+	function sortSelect(iterator) {
+		iterator.sort((a, b) => a.value.localeCompare(b.value))
+		const allOption = iterator.find((option) => option.value === 'Todos')
+		if (allOption) {
+			// Remover la opción "Todos" de su posición actual
+			const index = iterator.indexOf(allOption)
+			if (index !== -1) {
+				iterator.splice(index, 1)
+			}
+			// Agregar la opción "Todos" al principio del array
+			iterator.unshift(allOption)
+		}
+	}
+	chargeData()
 })

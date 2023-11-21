@@ -1,14 +1,13 @@
 async function createTable(data) {
-	$('#contain-table').empty()
 	startAnimation()
 		.then(() => {
 			$('#contain-table').append(data)
+			$('#contain-div-table').removeClass('hidden')
 			$('#table').DataTable({
 				searching: false,
 				lengthChange: false,
-				columnDefs: [{ targets: [0, 2], orderable: false }],
-				scrollY: '650px',
-				scrollX: '900px',
+				showing: false,
+				dom: '<"wrapper"lrtip>',
 				language: {
 					decimal: '',
 					emptyTable: 'No hay información',
@@ -23,10 +22,12 @@ async function createTable(data) {
 					search: 'Buscar:',
 					zeroRecords: 'Sin resultados encontrados',
 					paginate: {
-						first: 'Primero',
-						last: 'Ultimo',
-						next: 'Siguiente',
-						previous: 'Anterior',
+						next: '<button type="button" class="btn btn-outline-success">Siguiente</button>',
+						previous:
+							'<button type="button" class="btn btn-outline-success">Anterior</button>',
+						first:
+							'<button type="button" class="btn btn-outline-success">Primero</button>',
+						last: '<button type="button" class="btn btn-outline-success">Ultimo</button>',
 					},
 				},
 			})
@@ -36,23 +37,41 @@ async function createTable(data) {
 		})
 }
 
+function destroyTable() {
+	if ($.fn.DataTable.isDataTable('#table')) {
+		$('#table').DataTable().destroy()
+	}
+
+	$('#contain-table').empty()
+}
+
 function changeClass() {
-	$('#logo').removeClass('contenedor').addClass('ocultar')
-	$('#text').addClass('ocultar')
-	$('#charge').removeClass('ocultar')
+	$('#logo').removeClass('container').addClass('hidden')
+	$('#text').addClass('hidden')
+	$('#charge').removeClass('hidden')
 	$('#glosario').remove()
+	$('#contain-div-table').addClass('hidden')
+	$('#content-charge').removeClass('hidden')
+	$('#img-static').addClass('hidden')
 }
 
 function reboot() {
-	$('#text').removeClass('ocultar')
-	$('#logo').removeClass('ocultar').addClass('contenedor')
-	$('#text').removeClass('ocultar')
+	$('#text').removeClass('hidden')
+	$('#logo').removeClass('hidden').addClass('container')
+	$('#text').removeClass('hidden')
 }
 
-$(document).ready(function () {
-	$('#submit').on('click', function () {
-		$('.svg-item').css('opacity', 0)
-		reboot()
-		changeClass()
-	})
-})
+function reCharge() {
+	$('.svg-item').css('opacity', 0)
+	destroyTable()
+	reboot()
+	changeClass()
+}
+// $(document).ready(function () {
+// 	$('#submit').on('click', function () {
+// 		$('.svg-item').css('opacity', 0)
+// 		destroyTable()
+// 		reboot()
+// 		changeClass()
+// 	})
+// })

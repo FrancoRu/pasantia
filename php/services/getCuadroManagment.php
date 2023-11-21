@@ -75,8 +75,7 @@ class QuadroQuery implements QueryInterface
         //titulo: Hogares por material predominante de los pisos de la vivienda por área de gobierno local, fracción y radio censal. Año 2010.
         //departamento Colón
         //codificacion: 1H
-        $query = "SELECT R.url_cuadro_xlsx, TC.titulo_cuadro_titulo, 
-        DEP.nombre_departamento, CONCAT(TC.id_titulo_cuadro,TC.Tematica_id) AS cuadro_tematica 
+        $query = "SELECT R.url_cuadro_xlsx AS XLSX, CONCAT(TC.id_titulo_cuadro, TC.Tematica_id, '-', DEP.nombre_departamento, '-', TC.titulo_cuadro_titulo) AS Titulo
         FROM registro R
 		INNER JOIN titulo_cuadro TC 
 		ON TC.ID = R.titulo_cuadro_id_registro
@@ -149,36 +148,9 @@ class CuadroManagement implements CuadroManagerInterface
     //Funcion de punto de entrada desde controllers
     public function getQuadro($args)
     {
-        $results = $this->query->searchQuadro($args);
-        if ($results instanceof mysqli_result && isset($results)) {
-            $cuadros = $this->getArrayQuadros($results);
-        } else {
-            $cuadros = array(
-                array(
-                    'cuadro_titulo' => 'No se encontraron cuadros con la información proporcionada',
-                    'url_cuadro' => '',
-                    'departamento_cuadro' => '',
-                    'cuadro_tematica' => '',
-                )
-            );
-        }
-        return $cuadros;
+        return $results = $this->query->searchQuadro($args);
     }
 
-    // public function getSearch($args)
-    // {
-    //     $results = $this->query->searchResults($args);
-    //     if ($results instanceof mysqli_result && isset($results)) {
-    //         $results = $this->getArrayResults($results);
-    //     } else {
-    //         $result = array(
-    //             array(
-    //                 'find' => 'No se encontraron cuadros con la información proporcionada',
-    //             )
-    //         );
-    //     }
-    //     return $results;
-    // }
     //Devuelve un array asociativo entre: 
     //La url del cuadro(su ubicacion)
     //El titulo del mismo
@@ -198,20 +170,6 @@ class CuadroManagement implements CuadroManagerInterface
 
         return $cuadros;
     }
-    // private function getArrayResults($result)
-    // {
-    //     $results = array();
-    //     while ($row = $result->fetch_assoc()) {
-    //         $results[] = array(
-    //             'url_cuadro' => $row['url_cuadro_xlsx'],
-    //             'cuadro_titulo' => $row['titulo_cuadro_titulo'],
-    //             'departamento_cuadro' => $row['nombre_departamento'],
-    //             'cuadro_tematica' => $row['cuadro_tematica']
-    //         );
-    //     }
-
-    //     return $results;
-    // }
 }
 
 // // Ejemplo de uso:
