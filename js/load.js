@@ -85,11 +85,6 @@ $(document).ready(function () {
 		})
 	}
 
-	// Remover los hijos anteriores
-	function removeChild(parentElement) {
-		parentElement.empty()
-	}
-
 	// Inicio de script
 	function init() {
 		data = JSON.parse(localStorage.getItem('data'))
@@ -99,28 +94,31 @@ $(document).ready(function () {
 		themes(data)
 	}
 
-	// Cargar la escucha de eventos de cambio
-
-	censo_anio.on('change', function (event) {
-		event.preventDefault()
-		change(jurisdicciones, department)
-	})
-
-	department.on('change', function (event) {
-		event.preventDefault()
-		change(surveys, survey)
-	})
-
-	survey.on('change', function (event) {
-		event.preventDefault()
-		change(themes, listTheme)
-	})
+	function attachChangeEvent(selector, fx, remove) {
+		selector.on('change', function (event) {
+			event.preventDefault()
+			fx.forEach((element, index) => change(element, remove[index]))
+		})
+	}
 
 	function change(fx, remove) {
 		removeChild(remove)
-		data = localStorage.getItem('data')
+		const data = localStorage.getItem('data')
 		fx(JSON.parse(data))
 	}
+
+	function removeChild(element) {
+		element.empty() // Limpia el contenido del elemento hijo
+	}
+
+	// Attach change events
+	attachChangeEvent(
+		censo_anio,
+		[jurisdicciones, surveys, themes],
+		[department, survey, listTheme]
+	)
+	attachChangeEvent(department, [surveys, themes], [survey, listTheme])
+	attachChangeEvent(survey, [themes], [listTheme])
 
 	function sortSelect(iterator) {
 		iterator.sort((a, b) => a.value.localeCompare(b.value))

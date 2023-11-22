@@ -39,6 +39,7 @@ class InitService
                 D.nombre_departamento ASC, 
                 T.tematica_descripcion ASC, 
                 Cu.cuadro_tematica_descripcion ASC;';
+
         $statement = self::$stmt->prepare($query);
         if (!$statement) {
             throw new Exception("Error en la preparación de la consulta SQL.");
@@ -49,185 +50,101 @@ class InitService
         $result = $statement->get_result();
 
         $data = [];
-        $lastDepartments = null;
-        $lastYear = null;
-        $arrayQuadros = [];
-        $arrayQuadros[] = "Todos";
+        $data["censos"] = [];
 
-        $arrayAll = [];
+        $lastYear = null;
+        $lastDepartment = null;
+        $lastTheme = null;
+        $indexYear = -1; // Comenzar desde -1 para ajustar el primer incremento a 0
 
         while ($row = $result->fetch_assoc()) {
-            self::processRow($row, $data, $lastDepartments, $lastYear, $arrayQuadros, $arrayAll);
-        }
+            $year = $row['id_censo_anio'];
+            $department = $row['nombre_departamento'];
+            $theme = $row['tematica_descripcion'];
+            $quadro = $row['cuadro_tematica_descripcion'];
 
-        $yearIndex = array_search($lastYear, array_column($data['censos'], 'value'));
-        if ($row === null) {
-            $info = self::transformArray($arrayAll);
-            $data['censos'][$yearIndex]['departments'][] = $info;
-        }
-
-        // Convertimos a JSON con formato bonito
-        //echo json_encode($data, JSON_UNESCAPED_UNICODE);
-        self::writeJSON(json_encode($data, JSON_UNESCAPED_UNICODE));
-    }
-    private static function processRow($row, &$data, &$lastDepartments, &$lastYear, &$arrayQuadros, &$arrayAll)
-    {
-        $year = $row['id_censo_anio'];
-        $department = $row['nombre_departamento'];
-        $theme = $row['tematica_descripcion'];
-        $quadro = $row['cuadro_tematica_descripcion'];
-
-        if ($lastYear === null) {
-            $lastYear = $year;
-        }
-
-        if (!isset($arrayAll[$theme]) || !is_array($arrayAll[$theme])) {
-            $arrayAll[$theme] = [];
-        }
-
-        if (!isset($data['censos'])) {
-            $data['censos'] = [];
-        }
-
-        $existingYear = array_filter($data['censos'], function ($c) use ($year) {
-            return $c['value'] === $year;
-        });
-
-        if (empty($existingYear)) {
-            $data['censos'][] = [
-                'value' => $year,
-                'departments' => []
-            ];
-        }
-
-        $yearIndex = array_search($year, array_column($data['censos'], 'value'));
-
-        $existingDepartment = array_filter($data['censos'][$yearIndex]['departments'], function ($dep) use ($department) {
-            return $dep['value'] === $department;
-        });
-
-        if (empty($existingDepartment)) {
-            $data['censos'][$yearIndex]['departments'][] = [
-                'value' => $department,
-                'themes' => []
-            ];
-        }
-
-        $departmentIndex = array_search($department, array_column($data['censos'][$yearIndex]['departments'], 'value'));
-
-        $existingTheme = array_filter($data['censos'][$yearIndex]['departments'][$departmentIndex]['themes'], function ($th) use ($theme) {
-            return $th['value'] === $theme;
-        });
-
-        if (empty($existingTheme)) {
-            $data['censos'][$yearIndex]['departments'][$departmentIndex]['themes'][] = [
-                'value' => $theme,
-                'quadros' => []
-            ];
-            $themeIndex = array_search($theme, array_column($data['censos'][$yearIndex]['departments'][$departmentIndex]['themes'], 'value'));
-            $data['censos'][$yearIndex]['departments'][$departmentIndex]['themes'][$themeIndex]['quadros'][] = [
-                'value' => "Todos"
-            ];
-            if (!in_array("Todos", $arrayAll["$theme"])) {
-                $arrayAll["$theme"][] = "Todos";
-            }
-        }
-
-        $themeIndex = array_search($theme, array_column($data['censos'][$yearIndex]['departments'][$departmentIndex]['themes'], 'value'));
-
-        $data['censos'][$yearIndex]['departments'][$departmentIndex]['themes'][$themeIndex]['quadros'][] = [
-            'value' => $quadro
-        ];
-
-        if (!in_array($quadro, $arrayAll["$theme"])) {
-            $arrayAll["$theme"][] = $quadro;
-        }
-        if (!in_array($quadro, $arrayQuadros)) {
-            $arrayQuadros[] = $quadro;
-        }
-
-        if ($lastDepartments === null) {
-            $lastDepartments = $department;
-        }
-
-        if ($lastDepartments !== $department) {
-            $departmentIndex = array_search($lastDepartments, array_column($data['censos'][$yearIndex]['departments'], 'value'));
-            $theme = 'Todos';
-            $existingTheme = array_filter($data['censos'][$yearIndex]['departments'][$departmentIndex]['themes'], function ($th) use ($theme) {
-                return $th['value'] === $theme;
-            });
-
-            if (empty($existingTheme)) {
-                $data['censos'][$yearIndex]['departments'][$departmentIndex]['themes'][] = [
-                    'value' => $theme,
-                    'quadros' => []
+            if ($lastYear !== $year) {
+                $data["censos"][] = [
+                    "value" => $year,
+                    "departments" => []
+                ];
+                $lastYear = $year;
+                $indexYear++;
+                $lastDepartment = null;
+                $data["censos"][$indexYear]["departments"][] = [
+                    "value" => "Todos",
+                    "themes" => []
+                ];
+                $data["censos"][$indexYear]["departments"][0]["themes"][] = [
+                    "value" => "Todos",
+                    "quadros" => []
                 ];
             }
 
-            $themeIndex = array_search($theme, array_column($data['censos'][$yearIndex]['departments'][$departmentIndex]['themes'], 'value'));
-
-            foreach ($arrayQuadros as $Quadros) {
-                $data['censos'][$yearIndex]['departments'][$departmentIndex]['themes'][$themeIndex]['quadros'][] = [
-                    'value' => $Quadros
+            // Inicializar el índice del departamento si cambia el departamento
+            if ($lastDepartment !== $department) {
+                $data["censos"][$indexYear]["departments"][] = [
+                    "value" => $department,
+                    "themes" => []
                 ];
-                if (!isset($arrayAll[$theme]) || !is_array($arrayAll[$theme])) {
-                    $arrayAll[$theme] = [];
-                }
-                if (!in_array($Quadros, $arrayAll["$theme"])) {
-                    $arrayAll["$theme"][] = $Quadros;
-                }
+                $lastDepartment = $department;
+                $indexDepartment = count($data["censos"][$indexYear]["departments"]) - 1; // Índice del último departamento
+                $lastTheme = null;
+                $data["censos"][$indexYear]["departments"][$indexDepartment]["themes"][] = [
+                    "value" => "Todos",
+                    "quadros" => []
+                ];
             }
-            $lastDepartments = $department;
-            $arrayQuadros = [];
-            $arrayQuadros[] = "Todos";
-        }
 
-        if ($lastYear !== $year) {
-            if (!empty($arrayAll)) {
-                $yearIndex = array_search($lastYear, array_column($data['censos'], 'value'));
-                if ($yearIndex !== false) {
-                    $data['censos'][$yearIndex]['departments'][] = self::transformArray($arrayAll);
-                } else {
-                    $data['censos'][] = [
-                        'value' => $lastYear,
-                        'departments' => [self::transformArray($arrayAll)]
+            // Inicializar el índice del tema si cambia el tema
+            if ($lastTheme !== $theme) {
+                $data["censos"][$indexYear]["departments"][$indexDepartment]["themes"][] = [
+                    "value" => $theme,
+                    "quadros" => []
+                ];
+                $lastTheme = $theme;
+                $indexTheme = count($data["censos"][$indexYear]["departments"][$indexDepartment]["themes"]) - 1; // Índice del último tema
+                $data["censos"][$indexYear]["departments"][$indexDepartment]["themes"][$indexTheme]["quadros"][] = [
+                    "value" => "Todos"
+                ];
+                $valuesThemes = array_column($data["censos"][$indexYear]["departments"][0]["themes"], "value");
+                if (!in_array($theme, $valuesThemes)) {
+                    $data["censos"][$indexYear]["departments"][0]["themes"][] = [
+                        "value" => $theme,
+                        "quadros" => []
                     ];
                 }
-
-                if (!isset($arrayAll[$theme]) || !is_array($arrayAll[$theme])) {
-                    $arrayAll[$theme] = [];
-                }
             }
-            $lastYear = $year;
+
+            self::verifyQuadro("Todos", $data, $indexYear, $indexDepartment, 0);
+
+            self::verifyQuadro("Todos", $data, $indexYear, 0, $indexTheme);
+
+            self::verifyQuadro("Todos", $data, $indexYear, 0, 0);
+
+            self::verifyQuadro("Todos", $data, $indexYear, $indexDepartment, $indexTheme);
+
+            self::verifyQuadro($quadro, $data, $indexYear, $indexDepartment, 0);
+
+            self::verifyQuadro($quadro, $data, $indexYear, 0, $indexTheme);
+
+            self::verifyQuadro($quadro, $data, $indexYear, 0, 0);
+
+            self::verifyQuadro($quadro, $data, $indexYear, $indexDepartment, $indexTheme);
+
+            self::writeJSON(json_encode($data, JSON_UNESCAPED_UNICODE));
         }
     }
 
-    private static function transformArray($inputArray)
+    private static function verifyQuadro($quadro, &$data, $indexYear, $indexDepartment, $indexTheme)
     {
-        $result = [
-            'value' => 'Todos',
-            'themes' => []
-        ];
-
-        foreach ($inputArray as $key => $values) {
-            $themeItem = [
-                'value' => $key,
-                'quadros' => []
+        $values = array_column($data["censos"][$indexYear]["departments"][$indexDepartment]["themes"][$indexTheme]["quadros"], "value");
+        if (!in_array($quadro, $values)) {
+            $data["censos"][$indexYear]["departments"][$indexDepartment]["themes"][$indexTheme]["quadros"][] = [
+                "value" => $quadro
             ];
-
-            foreach ($values as $index => $quadroValue) {
-                $quadroItem = [
-                    'value' => $quadroValue
-                ];
-
-                $themeItem['quadros'][] = $quadroItem;
-            }
-
-            $result['themes'][] = $themeItem;
         }
-        return $result;
     }
-
     private static function writeJSON($data)
     {
         $filePath = '../public.json';

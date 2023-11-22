@@ -1,1 +1,1006 @@
-{"censos":[{"value":2010,"departments":[{"value":"Colón","themes":[{"value":"Hogar","quadros":[{"value":"Todos"},{"value":"Características Habitacionales"},{"value":"Equipamiento del hogar"},{"value":"Hacinamiento"},{"value":"Necesidades básicas insatisfechas"}]},{"value":"Poblacion","quadros":[{"value":"Todos"},{"value":"Caracteristicas Economicas"},{"value":"Composición del hogar"},{"value":"Educación"},{"value":"Equipamiento del hogar"},{"value":"Estructura de población"},{"value":"Migraciones"}]},{"value":"Vivienda","quadros":[{"value":"Todos"},{"value":"Características Habitacionales"},{"value":"Instituciones Colectivas"},{"value":"Unidades de relevamiento"}]},{"value":"Todos","quadros":[{"value":"Todos"},{"value":"Características Habitacionales"},{"value":"Equipamiento del hogar"},{"value":"Hacinamiento"},{"value":"Necesidades básicas insatisfechas"},{"value":"Caracteristicas Economicas"},{"value":"Composición del hogar"},{"value":"Educación"},{"value":"Estructura de población"},{"value":"Migraciones"},{"value":"Instituciones Colectivas"},{"value":"Unidades de relevamiento"}]}]},{"value":"Concordia","themes":[{"value":"Hogar","quadros":[{"value":"Todos"},{"value":"Características Habitacionales"},{"value":"Equipamiento del hogar"},{"value":"Hacinamiento"},{"value":"Necesidades básicas insatisfechas"}]},{"value":"Poblacion","quadros":[{"value":"Todos"},{"value":"Caracteristicas Economicas"},{"value":"Composición del hogar"},{"value":"Educación"},{"value":"Equipamiento del hogar"},{"value":"Estructura de población"},{"value":"Migraciones"}]},{"value":"Vivienda","quadros":[{"value":"Todos"},{"value":"Características Habitacionales"},{"value":"Instituciones Colectivas"},{"value":"Unidades de relevamiento"}]},{"value":"Todos","quadros":[{"value":"Todos"},{"value":"Equipamiento del hogar"},{"value":"Hacinamiento"},{"value":"Necesidades básicas insatisfechas"},{"value":"Caracteristicas Economicas"},{"value":"Composición del hogar"},{"value":"Educación"},{"value":"Estructura de población"},{"value":"Migraciones"},{"value":"Características Habitacionales"},{"value":"Instituciones Colectivas"},{"value":"Unidades de relevamiento"}]}]},{"value":"Diamante","themes":[{"value":"Hogar","quadros":[{"value":"Todos"},{"value":"Características Habitacionales"},{"value":"Equipamiento del hogar"},{"value":"Hacinamiento"},{"value":"Necesidades básicas insatisfechas"}]},{"value":"Poblacion","quadros":[{"value":"Todos"},{"value":"Caracteristicas Economicas"},{"value":"Composición del hogar"},{"value":"Educación"},{"value":"Equipamiento del hogar"},{"value":"Estructura de población"},{"value":"Migraciones"}]},{"value":"Vivienda","quadros":[{"value":"Todos"},{"value":"Características Habitacionales"},{"value":"Instituciones Colectivas"},{"value":"Unidades de relevamiento"}]},{"value":"Todos","quadros":[{"value":"Todos"},{"value":"Equipamiento del hogar"},{"value":"Hacinamiento"},{"value":"Necesidades básicas insatisfechas"},{"value":"Caracteristicas Economicas"},{"value":"Composición del hogar"},{"value":"Educación"},{"value":"Estructura de población"},{"value":"Migraciones"},{"value":"Características Habitacionales"},{"value":"Instituciones Colectivas"},{"value":"Unidades de relevamiento"}]}]},{"value":"Federación","themes":[{"value":"Hogar","quadros":[{"value":"Todos"},{"value":"Características Habitacionales"},{"value":"Equipamiento del hogar"},{"value":"Hacinamiento"},{"value":"Necesidades básicas insatisfechas"}]},{"value":"Poblacion","quadros":[{"value":"Todos"},{"value":"Caracteristicas Economicas"},{"value":"Composición del hogar"},{"value":"Educación"},{"value":"Equipamiento del hogar"},{"value":"Estructura de población"},{"value":"Migraciones"}]},{"value":"Vivienda","quadros":[{"value":"Todos"},{"value":"Características Habitacionales"},{"value":"Instituciones Colectivas"},{"value":"Unidades de relevamiento"}]},{"value":"Todos","quadros":[{"value":"Todos"},{"value":"Equipamiento del hogar"},{"value":"Hacinamiento"},{"value":"Necesidades básicas insatisfechas"},{"value":"Caracteristicas Economicas"},{"value":"Composición del hogar"},{"value":"Educación"},{"value":"Estructura de población"},{"value":"Migraciones"},{"value":"Características Habitacionales"},{"value":"Instituciones Colectivas"},{"value":"Unidades de relevamiento"}]}]},{"value":"Federal","themes":[{"value":"Hogar","quadros":[{"value":"Todos"},{"value":"Características Habitacionales"},{"value":"Equipamiento del hogar"},{"value":"Hacinamiento"},{"value":"Necesidades básicas insatisfechas"}]},{"value":"Poblacion","quadros":[{"value":"Todos"},{"value":"Caracteristicas Economicas"},{"value":"Composición del hogar"},{"value":"Educación"},{"value":"Equipamiento del hogar"},{"value":"Estructura de población"},{"value":"Migraciones"}]},{"value":"Vivienda","quadros":[{"value":"Todos"},{"value":"Características Habitacionales"},{"value":"Instituciones Colectivas"},{"value":"Unidades de relevamiento"}]},{"value":"Todos","quadros":[{"value":"Todos"},{"value":"Equipamiento del hogar"},{"value":"Hacinamiento"},{"value":"Necesidades básicas insatisfechas"},{"value":"Caracteristicas Economicas"},{"value":"Composición del hogar"},{"value":"Educación"},{"value":"Estructura de población"},{"value":"Migraciones"},{"value":"Características Habitacionales"},{"value":"Instituciones Colectivas"},{"value":"Unidades de relevamiento"}]}]},{"value":"Feliciano","themes":[{"value":"Hogar","quadros":[{"value":"Todos"},{"value":"Características Habitacionales"},{"value":"Equipamiento del hogar"},{"value":"Hacinamiento"},{"value":"Necesidades básicas insatisfechas"}]},{"value":"Poblacion","quadros":[{"value":"Todos"},{"value":"Caracteristicas Economicas"},{"value":"Composición del hogar"},{"value":"Educación"},{"value":"Equipamiento del hogar"},{"value":"Estructura de población"},{"value":"Migraciones"}]},{"value":"Vivienda","quadros":[{"value":"Todos"},{"value":"Características Habitacionales"},{"value":"Instituciones Colectivas"},{"value":"Unidades de relevamiento"}]},{"value":"Todos","quadros":[{"value":"Todos"},{"value":"Equipamiento del hogar"},{"value":"Hacinamiento"},{"value":"Necesidades básicas insatisfechas"},{"value":"Caracteristicas Economicas"},{"value":"Composición del hogar"},{"value":"Educación"},{"value":"Estructura de población"},{"value":"Migraciones"},{"value":"Características Habitacionales"},{"value":"Instituciones Colectivas"},{"value":"Unidades de relevamiento"}]}]},{"value":"Gualeguay","themes":[{"value":"Hogar","quadros":[{"value":"Todos"},{"value":"Características Habitacionales"},{"value":"Equipamiento del hogar"},{"value":"Hacinamiento"},{"value":"Necesidades básicas insatisfechas"}]},{"value":"Poblacion","quadros":[{"value":"Todos"},{"value":"Caracteristicas Economicas"},{"value":"Composición del hogar"},{"value":"Educación"},{"value":"Equipamiento del hogar"},{"value":"Estructura de población"},{"value":"Migraciones"}]},{"value":"Vivienda","quadros":[{"value":"Todos"},{"value":"Características Habitacionales"},{"value":"Instituciones Colectivas"},{"value":"Unidades de relevamiento"}]},{"value":"Todos","quadros":[{"value":"Todos"},{"value":"Equipamiento del hogar"},{"value":"Hacinamiento"},{"value":"Necesidades básicas insatisfechas"},{"value":"Caracteristicas Economicas"},{"value":"Composición del hogar"},{"value":"Educación"},{"value":"Estructura de población"},{"value":"Migraciones"},{"value":"Características Habitacionales"},{"value":"Instituciones Colectivas"},{"value":"Unidades de relevamiento"}]}]},{"value":"Gualeguaychú","themes":[{"value":"Hogar","quadros":[{"value":"Todos"},{"value":"Características Habitacionales"},{"value":"Equipamiento del hogar"},{"value":"Hacinamiento"},{"value":"Necesidades básicas insatisfechas"}]},{"value":"Poblacion","quadros":[{"value":"Todos"},{"value":"Caracteristicas Economicas"},{"value":"Composición del hogar"},{"value":"Educación"},{"value":"Equipamiento del hogar"},{"value":"Estructura de población"},{"value":"Migraciones"}]},{"value":"Vivienda","quadros":[{"value":"Todos"},{"value":"Características Habitacionales"},{"value":"Instituciones Colectivas"},{"value":"Unidades de relevamiento"}]},{"value":"Todos","quadros":[{"value":"Todos"},{"value":"Equipamiento del hogar"},{"value":"Hacinamiento"},{"value":"Necesidades básicas insatisfechas"},{"value":"Caracteristicas Economicas"},{"value":"Composición del hogar"},{"value":"Educación"},{"value":"Estructura de población"},{"value":"Migraciones"},{"value":"Características Habitacionales"},{"value":"Instituciones Colectivas"},{"value":"Unidades de relevamiento"}]}]},{"value":"Islas","themes":[{"value":"Hogar","quadros":[{"value":"Todos"},{"value":"Características Habitacionales"},{"value":"Equipamiento del hogar"},{"value":"Hacinamiento"},{"value":"Necesidades básicas insatisfechas"}]},{"value":"Poblacion","quadros":[{"value":"Todos"},{"value":"Caracteristicas Economicas"},{"value":"Composición del hogar"},{"value":"Educación"},{"value":"Equipamiento del hogar"},{"value":"Estructura de población"},{"value":"Migraciones"}]},{"value":"Vivienda","quadros":[{"value":"Todos"},{"value":"Características Habitacionales"},{"value":"Instituciones Colectivas"},{"value":"Unidades de relevamiento"}]},{"value":"Todos","quadros":[{"value":"Todos"},{"value":"Equipamiento del hogar"},{"value":"Hacinamiento"},{"value":"Necesidades básicas insatisfechas"},{"value":"Caracteristicas Economicas"},{"value":"Composición del hogar"},{"value":"Educación"},{"value":"Estructura de población"},{"value":"Migraciones"},{"value":"Características Habitacionales"},{"value":"Instituciones Colectivas"},{"value":"Unidades de relevamiento"}]}]},{"value":"La Paz","themes":[{"value":"Hogar","quadros":[{"value":"Todos"},{"value":"Características Habitacionales"},{"value":"Equipamiento del hogar"},{"value":"Hacinamiento"},{"value":"Necesidades básicas insatisfechas"}]},{"value":"Poblacion","quadros":[{"value":"Todos"},{"value":"Caracteristicas Economicas"},{"value":"Composición del hogar"},{"value":"Educación"},{"value":"Equipamiento del hogar"},{"value":"Estructura de población"},{"value":"Migraciones"}]},{"value":"Vivienda","quadros":[{"value":"Todos"},{"value":"Características Habitacionales"},{"value":"Instituciones Colectivas"},{"value":"Unidades de relevamiento"}]},{"value":"Todos","quadros":[{"value":"Todos"},{"value":"Equipamiento del hogar"},{"value":"Hacinamiento"},{"value":"Necesidades básicas insatisfechas"},{"value":"Caracteristicas Economicas"},{"value":"Composición del hogar"},{"value":"Educación"},{"value":"Estructura de población"},{"value":"Migraciones"},{"value":"Características Habitacionales"},{"value":"Instituciones Colectivas"},{"value":"Unidades de relevamiento"}]}]},{"value":"Nogoyá","themes":[{"value":"Hogar","quadros":[{"value":"Todos"},{"value":"Características Habitacionales"},{"value":"Equipamiento del hogar"},{"value":"Hacinamiento"},{"value":"Necesidades básicas insatisfechas"}]},{"value":"Poblacion","quadros":[{"value":"Todos"},{"value":"Caracteristicas Economicas"},{"value":"Composición del hogar"},{"value":"Educación"},{"value":"Equipamiento del hogar"},{"value":"Estructura de población"},{"value":"Migraciones"}]},{"value":"Vivienda","quadros":[{"value":"Todos"},{"value":"Características Habitacionales"},{"value":"Instituciones Colectivas"},{"value":"Unidades de relevamiento"}]},{"value":"Todos","quadros":[{"value":"Todos"},{"value":"Equipamiento del hogar"},{"value":"Hacinamiento"},{"value":"Necesidades básicas insatisfechas"},{"value":"Caracteristicas Economicas"},{"value":"Composición del hogar"},{"value":"Educación"},{"value":"Estructura de población"},{"value":"Migraciones"},{"value":"Características Habitacionales"},{"value":"Instituciones Colectivas"},{"value":"Unidades de relevamiento"}]}]},{"value":"Paraná","themes":[{"value":"Hogar","quadros":[{"value":"Todos"},{"value":"Características Habitacionales"},{"value":"Equipamiento del hogar"},{"value":"Hacinamiento"},{"value":"Necesidades básicas insatisfechas"}]},{"value":"Poblacion","quadros":[{"value":"Todos"},{"value":"Caracteristicas Economicas"},{"value":"Composición del hogar"},{"value":"Educación"},{"value":"Equipamiento del hogar"},{"value":"Estructura de población"},{"value":"Migraciones"}]},{"value":"Vivienda","quadros":[{"value":"Todos"},{"value":"Características Habitacionales"},{"value":"Instituciones Colectivas"},{"value":"Unidades de relevamiento"}]},{"value":"Todos","quadros":[{"value":"Todos"},{"value":"Equipamiento del hogar"},{"value":"Hacinamiento"},{"value":"Necesidades básicas insatisfechas"},{"value":"Caracteristicas Economicas"},{"value":"Composición del hogar"},{"value":"Educación"},{"value":"Estructura de población"},{"value":"Migraciones"},{"value":"Características Habitacionales"},{"value":"Instituciones Colectivas"},{"value":"Unidades de relevamiento"}]}]},{"value":"San Salvador","themes":[{"value":"Hogar","quadros":[{"value":"Todos"},{"value":"Características Habitacionales"},{"value":"Equipamiento del hogar"},{"value":"Hacinamiento"},{"value":"Necesidades básicas insatisfechas"}]},{"value":"Poblacion","quadros":[{"value":"Todos"},{"value":"Caracteristicas Economicas"},{"value":"Composición del hogar"},{"value":"Educación"},{"value":"Equipamiento del hogar"},{"value":"Estructura de población"},{"value":"Migraciones"}]},{"value":"Vivienda","quadros":[{"value":"Todos"},{"value":"Características Habitacionales"},{"value":"Instituciones Colectivas"},{"value":"Unidades de relevamiento"}]},{"value":"Todos","quadros":[{"value":"Todos"},{"value":"Equipamiento del hogar"},{"value":"Hacinamiento"},{"value":"Necesidades básicas insatisfechas"},{"value":"Caracteristicas Economicas"},{"value":"Composición del hogar"},{"value":"Educación"},{"value":"Estructura de población"},{"value":"Migraciones"},{"value":"Características Habitacionales"},{"value":"Instituciones Colectivas"},{"value":"Unidades de relevamiento"}]}]},{"value":"Tala","themes":[{"value":"Hogar","quadros":[{"value":"Todos"},{"value":"Características Habitacionales"},{"value":"Equipamiento del hogar"},{"value":"Hacinamiento"},{"value":"Necesidades básicas insatisfechas"}]},{"value":"Poblacion","quadros":[{"value":"Todos"},{"value":"Caracteristicas Economicas"},{"value":"Composición del hogar"},{"value":"Educación"},{"value":"Equipamiento del hogar"},{"value":"Estructura de población"},{"value":"Migraciones"}]},{"value":"Vivienda","quadros":[{"value":"Todos"},{"value":"Características Habitacionales"},{"value":"Instituciones Colectivas"},{"value":"Unidades de relevamiento"}]},{"value":"Todos","quadros":[{"value":"Todos"},{"value":"Equipamiento del hogar"},{"value":"Hacinamiento"},{"value":"Necesidades básicas insatisfechas"},{"value":"Caracteristicas Economicas"},{"value":"Composición del hogar"},{"value":"Educación"},{"value":"Estructura de población"},{"value":"Migraciones"},{"value":"Características Habitacionales"},{"value":"Instituciones Colectivas"},{"value":"Unidades de relevamiento"}]}]},{"value":"Uruguay","themes":[{"value":"Hogar","quadros":[{"value":"Todos"},{"value":"Características Habitacionales"},{"value":"Equipamiento del hogar"},{"value":"Hacinamiento"},{"value":"Necesidades básicas insatisfechas"}]},{"value":"Poblacion","quadros":[{"value":"Todos"},{"value":"Caracteristicas Economicas"},{"value":"Composición del hogar"},{"value":"Educación"},{"value":"Equipamiento del hogar"},{"value":"Estructura de población"},{"value":"Migraciones"}]},{"value":"Vivienda","quadros":[{"value":"Todos"},{"value":"Características Habitacionales"},{"value":"Instituciones Colectivas"},{"value":"Unidades de relevamiento"}]},{"value":"Todos","quadros":[{"value":"Todos"},{"value":"Equipamiento del hogar"},{"value":"Hacinamiento"},{"value":"Necesidades básicas insatisfechas"},{"value":"Caracteristicas Economicas"},{"value":"Composición del hogar"},{"value":"Educación"},{"value":"Estructura de población"},{"value":"Migraciones"},{"value":"Características Habitacionales"},{"value":"Instituciones Colectivas"},{"value":"Unidades de relevamiento"}]}]},{"value":"Victoria","themes":[{"value":"Hogar","quadros":[{"value":"Todos"},{"value":"Características Habitacionales"},{"value":"Equipamiento del hogar"},{"value":"Hacinamiento"},{"value":"Necesidades básicas insatisfechas"}]},{"value":"Poblacion","quadros":[{"value":"Todos"},{"value":"Caracteristicas Economicas"},{"value":"Composición del hogar"},{"value":"Educación"},{"value":"Equipamiento del hogar"},{"value":"Estructura de población"},{"value":"Migraciones"}]},{"value":"Vivienda","quadros":[{"value":"Todos"},{"value":"Características Habitacionales"},{"value":"Instituciones Colectivas"},{"value":"Unidades de relevamiento"}]},{"value":"Todos","quadros":[{"value":"Todos"},{"value":"Equipamiento del hogar"},{"value":"Hacinamiento"},{"value":"Necesidades básicas insatisfechas"},{"value":"Caracteristicas Economicas"},{"value":"Composición del hogar"},{"value":"Educación"},{"value":"Estructura de población"},{"value":"Migraciones"},{"value":"Características Habitacionales"},{"value":"Instituciones Colectivas"},{"value":"Unidades de relevamiento"}]}]},{"value":"Villaguay","themes":[{"value":"Hogar","quadros":[{"value":"Todos"},{"value":"Características Habitacionales"},{"value":"Equipamiento del hogar"},{"value":"Hacinamiento"},{"value":"Necesidades básicas insatisfechas"}]},{"value":"Poblacion","quadros":[{"value":"Todos"},{"value":"Caracteristicas Economicas"},{"value":"Composición del hogar"},{"value":"Educación"},{"value":"Equipamiento del hogar"},{"value":"Estructura de población"},{"value":"Migraciones"}]},{"value":"Vivienda","quadros":[{"value":"Todos"},{"value":"Características Habitacionales"},{"value":"Instituciones Colectivas"},{"value":"Unidades de relevamiento"}]}]},{"value":"Todos","themes":[{"value":"Hogar","quadros":[{"value":"Todos"},{"value":"Características Habitacionales"},{"value":"Equipamiento del hogar"},{"value":"Hacinamiento"},{"value":"Necesidades básicas insatisfechas"}]},{"value":"Poblacion","quadros":[{"value":"Todos"},{"value":"Caracteristicas Economicas"},{"value":"Composición del hogar"},{"value":"Educación"},{"value":"Equipamiento del hogar"},{"value":"Estructura de población"},{"value":"Migraciones"}]},{"value":"Vivienda","quadros":[{"value":"Todos"},{"value":"Características Habitacionales"},{"value":"Instituciones Colectivas"},{"value":"Unidades de relevamiento"}]},{"value":"Todos","quadros":[{"value":"Todos"},{"value":"Características Habitacionales"},{"value":"Equipamiento del hogar"},{"value":"Hacinamiento"},{"value":"Necesidades básicas insatisfechas"},{"value":"Caracteristicas Economicas"},{"value":"Composición del hogar"},{"value":"Educación"},{"value":"Estructura de población"},{"value":"Migraciones"},{"value":"Instituciones Colectivas"},{"value":"Unidades de relevamiento"}]}]}]},{"value":2022,"departments":[{"value":"Entre Ríos","themes":[{"value":"Poblacion","quadros":[{"value":"Todos"},{"value":"Estructura de población"}]},{"value":"Todos","quadros":[{"value":"Todos"},{"value":"Equipamiento del hogar"},{"value":"Hacinamiento"},{"value":"Necesidades básicas insatisfechas"},{"value":"Caracteristicas Economicas"},{"value":"Composición del hogar"},{"value":"Educación"},{"value":"Estructura de población"},{"value":"Migraciones"},{"value":"Características Habitacionales"},{"value":"Instituciones Colectivas"},{"value":"Unidades de relevamiento"}]}]},{"value":"Todos","themes":[{"value":"Hogar","quadros":[{"value":"Todos"},{"value":"Características Habitacionales"},{"value":"Equipamiento del hogar"},{"value":"Hacinamiento"},{"value":"Necesidades básicas insatisfechas"}]},{"value":"Poblacion","quadros":[{"value":"Todos"},{"value":"Caracteristicas Economicas"},{"value":"Composición del hogar"},{"value":"Educación"},{"value":"Equipamiento del hogar"},{"value":"Estructura de población"},{"value":"Migraciones"}]},{"value":"Vivienda","quadros":[{"value":"Todos"},{"value":"Características Habitacionales"},{"value":"Instituciones Colectivas"},{"value":"Unidades de relevamiento"}]},{"value":"Todos","quadros":[{"value":"Todos"},{"value":"Características Habitacionales"},{"value":"Equipamiento del hogar"},{"value":"Hacinamiento"},{"value":"Necesidades básicas insatisfechas"},{"value":"Caracteristicas Economicas"},{"value":"Composición del hogar"},{"value":"Educación"},{"value":"Estructura de población"},{"value":"Migraciones"},{"value":"Instituciones Colectivas"},{"value":"Unidades de relevamiento"}]}]}]}]}
+{
+	"censos": [
+		{
+			"value": 2010,
+			"departments": [
+				{
+					"value": "Todos",
+					"themes": [
+						{
+							"value": "Todos",
+							"quadros": [
+								{ "value": "Todos" },
+								{ "value": "Características Habitacionales" },
+								{ "value": "Equipamiento del hogar" },
+								{ "value": "Hacinamiento" },
+								{ "value": "Necesidades básicas insatisfechas" },
+								{ "value": "Caracteristicas Economicas" },
+								{ "value": "Composición del hogar" },
+								{ "value": "Educación" },
+								{ "value": "Estructura de población" },
+								{ "value": "Migraciones" },
+								{ "value": "Instituciones Colectivas" },
+								{ "value": "Unidades de relevamiento" }
+							]
+						},
+						{
+							"value": "Hogar",
+							"quadros": [
+								{ "value": "Todos" },
+								{ "value": "Características Habitacionales" },
+								{ "value": "Equipamiento del hogar" },
+								{ "value": "Hacinamiento" },
+								{ "value": "Necesidades básicas insatisfechas" }
+							]
+						},
+						{
+							"value": "Poblacion",
+							"quadros": [
+								{ "value": "Todos" },
+								{ "value": "Caracteristicas Economicas" },
+								{ "value": "Composición del hogar" },
+								{ "value": "Educación" },
+								{ "value": "Equipamiento del hogar" },
+								{ "value": "Estructura de población" },
+								{ "value": "Migraciones" }
+							]
+						},
+						{
+							"value": "Vivienda",
+							"quadros": [
+								{ "value": "Todos" },
+								{ "value": "Características Habitacionales" },
+								{ "value": "Instituciones Colectivas" },
+								{ "value": "Unidades de relevamiento" }
+							]
+						}
+					]
+				},
+				{
+					"value": "Colón",
+					"themes": [
+						{
+							"value": "Todos",
+							"quadros": [
+								{ "value": "Todos" },
+								{ "value": "Características Habitacionales" },
+								{ "value": "Equipamiento del hogar" },
+								{ "value": "Hacinamiento" },
+								{ "value": "Necesidades básicas insatisfechas" },
+								{ "value": "Caracteristicas Economicas" },
+								{ "value": "Composición del hogar" },
+								{ "value": "Educación" },
+								{ "value": "Estructura de población" },
+								{ "value": "Migraciones" },
+								{ "value": "Instituciones Colectivas" },
+								{ "value": "Unidades de relevamiento" }
+							]
+						},
+						{
+							"value": "Hogar",
+							"quadros": [
+								{ "value": "Todos" },
+								{ "value": "Características Habitacionales" },
+								{ "value": "Equipamiento del hogar" },
+								{ "value": "Hacinamiento" },
+								{ "value": "Necesidades básicas insatisfechas" }
+							]
+						},
+						{
+							"value": "Poblacion",
+							"quadros": [
+								{ "value": "Todos" },
+								{ "value": "Caracteristicas Economicas" },
+								{ "value": "Composición del hogar" },
+								{ "value": "Educación" },
+								{ "value": "Equipamiento del hogar" },
+								{ "value": "Estructura de población" },
+								{ "value": "Migraciones" }
+							]
+						},
+						{
+							"value": "Vivienda",
+							"quadros": [
+								{ "value": "Todos" },
+								{ "value": "Características Habitacionales" },
+								{ "value": "Instituciones Colectivas" },
+								{ "value": "Unidades de relevamiento" }
+							]
+						}
+					]
+				},
+				{
+					"value": "Concordia",
+					"themes": [
+						{
+							"value": "Todos",
+							"quadros": [
+								{ "value": "Todos" },
+								{ "value": "Características Habitacionales" },
+								{ "value": "Equipamiento del hogar" },
+								{ "value": "Hacinamiento" },
+								{ "value": "Necesidades básicas insatisfechas" },
+								{ "value": "Caracteristicas Economicas" },
+								{ "value": "Composición del hogar" },
+								{ "value": "Educación" },
+								{ "value": "Estructura de población" },
+								{ "value": "Migraciones" },
+								{ "value": "Instituciones Colectivas" },
+								{ "value": "Unidades de relevamiento" }
+							]
+						},
+						{
+							"value": "Hogar",
+							"quadros": [
+								{ "value": "Todos" },
+								{ "value": "Características Habitacionales" },
+								{ "value": "Equipamiento del hogar" },
+								{ "value": "Hacinamiento" },
+								{ "value": "Necesidades básicas insatisfechas" }
+							]
+						},
+						{
+							"value": "Poblacion",
+							"quadros": [
+								{ "value": "Todos" },
+								{ "value": "Caracteristicas Economicas" },
+								{ "value": "Composición del hogar" },
+								{ "value": "Educación" },
+								{ "value": "Equipamiento del hogar" },
+								{ "value": "Estructura de población" },
+								{ "value": "Migraciones" }
+							]
+						},
+						{
+							"value": "Vivienda",
+							"quadros": [
+								{ "value": "Todos" },
+								{ "value": "Características Habitacionales" },
+								{ "value": "Instituciones Colectivas" },
+								{ "value": "Unidades de relevamiento" }
+							]
+						}
+					]
+				},
+				{
+					"value": "Diamante",
+					"themes": [
+						{
+							"value": "Todos",
+							"quadros": [
+								{ "value": "Todos" },
+								{ "value": "Características Habitacionales" },
+								{ "value": "Equipamiento del hogar" },
+								{ "value": "Hacinamiento" },
+								{ "value": "Necesidades básicas insatisfechas" },
+								{ "value": "Caracteristicas Economicas" },
+								{ "value": "Composición del hogar" },
+								{ "value": "Educación" },
+								{ "value": "Estructura de población" },
+								{ "value": "Migraciones" },
+								{ "value": "Instituciones Colectivas" },
+								{ "value": "Unidades de relevamiento" }
+							]
+						},
+						{
+							"value": "Hogar",
+							"quadros": [
+								{ "value": "Todos" },
+								{ "value": "Características Habitacionales" },
+								{ "value": "Equipamiento del hogar" },
+								{ "value": "Hacinamiento" },
+								{ "value": "Necesidades básicas insatisfechas" }
+							]
+						},
+						{
+							"value": "Poblacion",
+							"quadros": [
+								{ "value": "Todos" },
+								{ "value": "Caracteristicas Economicas" },
+								{ "value": "Composición del hogar" },
+								{ "value": "Educación" },
+								{ "value": "Equipamiento del hogar" },
+								{ "value": "Estructura de población" },
+								{ "value": "Migraciones" }
+							]
+						},
+						{
+							"value": "Vivienda",
+							"quadros": [
+								{ "value": "Todos" },
+								{ "value": "Características Habitacionales" },
+								{ "value": "Instituciones Colectivas" },
+								{ "value": "Unidades de relevamiento" }
+							]
+						}
+					]
+				},
+				{
+					"value": "Federación",
+					"themes": [
+						{
+							"value": "Todos",
+							"quadros": [
+								{ "value": "Todos" },
+								{ "value": "Características Habitacionales" },
+								{ "value": "Equipamiento del hogar" },
+								{ "value": "Hacinamiento" },
+								{ "value": "Necesidades básicas insatisfechas" },
+								{ "value": "Caracteristicas Economicas" },
+								{ "value": "Composición del hogar" },
+								{ "value": "Educación" },
+								{ "value": "Estructura de población" },
+								{ "value": "Migraciones" },
+								{ "value": "Instituciones Colectivas" },
+								{ "value": "Unidades de relevamiento" }
+							]
+						},
+						{
+							"value": "Hogar",
+							"quadros": [
+								{ "value": "Todos" },
+								{ "value": "Características Habitacionales" },
+								{ "value": "Equipamiento del hogar" },
+								{ "value": "Hacinamiento" },
+								{ "value": "Necesidades básicas insatisfechas" }
+							]
+						},
+						{
+							"value": "Poblacion",
+							"quadros": [
+								{ "value": "Todos" },
+								{ "value": "Caracteristicas Economicas" },
+								{ "value": "Composición del hogar" },
+								{ "value": "Educación" },
+								{ "value": "Equipamiento del hogar" },
+								{ "value": "Estructura de población" },
+								{ "value": "Migraciones" }
+							]
+						},
+						{
+							"value": "Vivienda",
+							"quadros": [
+								{ "value": "Todos" },
+								{ "value": "Características Habitacionales" },
+								{ "value": "Instituciones Colectivas" },
+								{ "value": "Unidades de relevamiento" }
+							]
+						}
+					]
+				},
+				{
+					"value": "Federal",
+					"themes": [
+						{
+							"value": "Todos",
+							"quadros": [
+								{ "value": "Todos" },
+								{ "value": "Características Habitacionales" },
+								{ "value": "Equipamiento del hogar" },
+								{ "value": "Hacinamiento" },
+								{ "value": "Necesidades básicas insatisfechas" },
+								{ "value": "Caracteristicas Economicas" },
+								{ "value": "Composición del hogar" },
+								{ "value": "Educación" },
+								{ "value": "Estructura de población" },
+								{ "value": "Migraciones" },
+								{ "value": "Instituciones Colectivas" },
+								{ "value": "Unidades de relevamiento" }
+							]
+						},
+						{
+							"value": "Hogar",
+							"quadros": [
+								{ "value": "Todos" },
+								{ "value": "Características Habitacionales" },
+								{ "value": "Equipamiento del hogar" },
+								{ "value": "Hacinamiento" },
+								{ "value": "Necesidades básicas insatisfechas" }
+							]
+						},
+						{
+							"value": "Poblacion",
+							"quadros": [
+								{ "value": "Todos" },
+								{ "value": "Caracteristicas Economicas" },
+								{ "value": "Composición del hogar" },
+								{ "value": "Educación" },
+								{ "value": "Equipamiento del hogar" },
+								{ "value": "Estructura de población" },
+								{ "value": "Migraciones" }
+							]
+						},
+						{
+							"value": "Vivienda",
+							"quadros": [
+								{ "value": "Todos" },
+								{ "value": "Características Habitacionales" },
+								{ "value": "Instituciones Colectivas" },
+								{ "value": "Unidades de relevamiento" }
+							]
+						}
+					]
+				},
+				{
+					"value": "Feliciano",
+					"themes": [
+						{
+							"value": "Todos",
+							"quadros": [
+								{ "value": "Todos" },
+								{ "value": "Características Habitacionales" },
+								{ "value": "Equipamiento del hogar" },
+								{ "value": "Hacinamiento" },
+								{ "value": "Necesidades básicas insatisfechas" },
+								{ "value": "Caracteristicas Economicas" },
+								{ "value": "Composición del hogar" },
+								{ "value": "Educación" },
+								{ "value": "Estructura de población" },
+								{ "value": "Migraciones" },
+								{ "value": "Instituciones Colectivas" },
+								{ "value": "Unidades de relevamiento" }
+							]
+						},
+						{
+							"value": "Hogar",
+							"quadros": [
+								{ "value": "Todos" },
+								{ "value": "Características Habitacionales" },
+								{ "value": "Equipamiento del hogar" },
+								{ "value": "Hacinamiento" },
+								{ "value": "Necesidades básicas insatisfechas" }
+							]
+						},
+						{
+							"value": "Poblacion",
+							"quadros": [
+								{ "value": "Todos" },
+								{ "value": "Caracteristicas Economicas" },
+								{ "value": "Composición del hogar" },
+								{ "value": "Educación" },
+								{ "value": "Equipamiento del hogar" },
+								{ "value": "Estructura de población" },
+								{ "value": "Migraciones" }
+							]
+						},
+						{
+							"value": "Vivienda",
+							"quadros": [
+								{ "value": "Todos" },
+								{ "value": "Características Habitacionales" },
+								{ "value": "Instituciones Colectivas" },
+								{ "value": "Unidades de relevamiento" }
+							]
+						}
+					]
+				},
+				{
+					"value": "Gualeguay",
+					"themes": [
+						{
+							"value": "Todos",
+							"quadros": [
+								{ "value": "Todos" },
+								{ "value": "Características Habitacionales" },
+								{ "value": "Equipamiento del hogar" },
+								{ "value": "Hacinamiento" },
+								{ "value": "Necesidades básicas insatisfechas" },
+								{ "value": "Caracteristicas Economicas" },
+								{ "value": "Composición del hogar" },
+								{ "value": "Educación" },
+								{ "value": "Estructura de población" },
+								{ "value": "Migraciones" },
+								{ "value": "Instituciones Colectivas" },
+								{ "value": "Unidades de relevamiento" }
+							]
+						},
+						{
+							"value": "Hogar",
+							"quadros": [
+								{ "value": "Todos" },
+								{ "value": "Características Habitacionales" },
+								{ "value": "Equipamiento del hogar" },
+								{ "value": "Hacinamiento" },
+								{ "value": "Necesidades básicas insatisfechas" }
+							]
+						},
+						{
+							"value": "Poblacion",
+							"quadros": [
+								{ "value": "Todos" },
+								{ "value": "Caracteristicas Economicas" },
+								{ "value": "Composición del hogar" },
+								{ "value": "Educación" },
+								{ "value": "Equipamiento del hogar" },
+								{ "value": "Estructura de población" },
+								{ "value": "Migraciones" }
+							]
+						},
+						{
+							"value": "Vivienda",
+							"quadros": [
+								{ "value": "Todos" },
+								{ "value": "Características Habitacionales" },
+								{ "value": "Instituciones Colectivas" },
+								{ "value": "Unidades de relevamiento" }
+							]
+						}
+					]
+				},
+				{
+					"value": "Gualeguaychú",
+					"themes": [
+						{
+							"value": "Todos",
+							"quadros": [
+								{ "value": "Todos" },
+								{ "value": "Características Habitacionales" },
+								{ "value": "Equipamiento del hogar" },
+								{ "value": "Hacinamiento" },
+								{ "value": "Necesidades básicas insatisfechas" },
+								{ "value": "Caracteristicas Economicas" },
+								{ "value": "Composición del hogar" },
+								{ "value": "Educación" },
+								{ "value": "Estructura de población" },
+								{ "value": "Migraciones" },
+								{ "value": "Instituciones Colectivas" },
+								{ "value": "Unidades de relevamiento" }
+							]
+						},
+						{
+							"value": "Hogar",
+							"quadros": [
+								{ "value": "Todos" },
+								{ "value": "Características Habitacionales" },
+								{ "value": "Equipamiento del hogar" },
+								{ "value": "Hacinamiento" },
+								{ "value": "Necesidades básicas insatisfechas" }
+							]
+						},
+						{
+							"value": "Poblacion",
+							"quadros": [
+								{ "value": "Todos" },
+								{ "value": "Caracteristicas Economicas" },
+								{ "value": "Composición del hogar" },
+								{ "value": "Educación" },
+								{ "value": "Equipamiento del hogar" },
+								{ "value": "Estructura de población" },
+								{ "value": "Migraciones" }
+							]
+						},
+						{
+							"value": "Vivienda",
+							"quadros": [
+								{ "value": "Todos" },
+								{ "value": "Características Habitacionales" },
+								{ "value": "Instituciones Colectivas" },
+								{ "value": "Unidades de relevamiento" }
+							]
+						}
+					]
+				},
+				{
+					"value": "Islas",
+					"themes": [
+						{
+							"value": "Todos",
+							"quadros": [
+								{ "value": "Todos" },
+								{ "value": "Características Habitacionales" },
+								{ "value": "Equipamiento del hogar" },
+								{ "value": "Hacinamiento" },
+								{ "value": "Necesidades básicas insatisfechas" },
+								{ "value": "Caracteristicas Economicas" },
+								{ "value": "Composición del hogar" },
+								{ "value": "Educación" },
+								{ "value": "Estructura de población" },
+								{ "value": "Migraciones" },
+								{ "value": "Instituciones Colectivas" },
+								{ "value": "Unidades de relevamiento" }
+							]
+						},
+						{
+							"value": "Hogar",
+							"quadros": [
+								{ "value": "Todos" },
+								{ "value": "Características Habitacionales" },
+								{ "value": "Equipamiento del hogar" },
+								{ "value": "Hacinamiento" },
+								{ "value": "Necesidades básicas insatisfechas" }
+							]
+						},
+						{
+							"value": "Poblacion",
+							"quadros": [
+								{ "value": "Todos" },
+								{ "value": "Caracteristicas Economicas" },
+								{ "value": "Composición del hogar" },
+								{ "value": "Educación" },
+								{ "value": "Equipamiento del hogar" },
+								{ "value": "Estructura de población" },
+								{ "value": "Migraciones" }
+							]
+						},
+						{
+							"value": "Vivienda",
+							"quadros": [
+								{ "value": "Todos" },
+								{ "value": "Características Habitacionales" },
+								{ "value": "Instituciones Colectivas" },
+								{ "value": "Unidades de relevamiento" }
+							]
+						}
+					]
+				},
+				{
+					"value": "La Paz",
+					"themes": [
+						{
+							"value": "Todos",
+							"quadros": [
+								{ "value": "Todos" },
+								{ "value": "Características Habitacionales" },
+								{ "value": "Equipamiento del hogar" },
+								{ "value": "Hacinamiento" },
+								{ "value": "Necesidades básicas insatisfechas" },
+								{ "value": "Caracteristicas Economicas" },
+								{ "value": "Composición del hogar" },
+								{ "value": "Educación" },
+								{ "value": "Estructura de población" },
+								{ "value": "Migraciones" },
+								{ "value": "Instituciones Colectivas" },
+								{ "value": "Unidades de relevamiento" }
+							]
+						},
+						{
+							"value": "Hogar",
+							"quadros": [
+								{ "value": "Todos" },
+								{ "value": "Características Habitacionales" },
+								{ "value": "Equipamiento del hogar" },
+								{ "value": "Hacinamiento" },
+								{ "value": "Necesidades básicas insatisfechas" }
+							]
+						},
+						{
+							"value": "Poblacion",
+							"quadros": [
+								{ "value": "Todos" },
+								{ "value": "Caracteristicas Economicas" },
+								{ "value": "Composición del hogar" },
+								{ "value": "Educación" },
+								{ "value": "Equipamiento del hogar" },
+								{ "value": "Estructura de población" },
+								{ "value": "Migraciones" }
+							]
+						},
+						{
+							"value": "Vivienda",
+							"quadros": [
+								{ "value": "Todos" },
+								{ "value": "Características Habitacionales" },
+								{ "value": "Instituciones Colectivas" },
+								{ "value": "Unidades de relevamiento" }
+							]
+						}
+					]
+				},
+				{
+					"value": "Nogoyá",
+					"themes": [
+						{
+							"value": "Todos",
+							"quadros": [
+								{ "value": "Todos" },
+								{ "value": "Características Habitacionales" },
+								{ "value": "Equipamiento del hogar" },
+								{ "value": "Hacinamiento" },
+								{ "value": "Necesidades básicas insatisfechas" },
+								{ "value": "Caracteristicas Economicas" },
+								{ "value": "Composición del hogar" },
+								{ "value": "Educación" },
+								{ "value": "Estructura de población" },
+								{ "value": "Migraciones" },
+								{ "value": "Instituciones Colectivas" },
+								{ "value": "Unidades de relevamiento" }
+							]
+						},
+						{
+							"value": "Hogar",
+							"quadros": [
+								{ "value": "Todos" },
+								{ "value": "Características Habitacionales" },
+								{ "value": "Equipamiento del hogar" },
+								{ "value": "Hacinamiento" },
+								{ "value": "Necesidades básicas insatisfechas" }
+							]
+						},
+						{
+							"value": "Poblacion",
+							"quadros": [
+								{ "value": "Todos" },
+								{ "value": "Caracteristicas Economicas" },
+								{ "value": "Composición del hogar" },
+								{ "value": "Educación" },
+								{ "value": "Equipamiento del hogar" },
+								{ "value": "Estructura de población" },
+								{ "value": "Migraciones" }
+							]
+						},
+						{
+							"value": "Vivienda",
+							"quadros": [
+								{ "value": "Todos" },
+								{ "value": "Características Habitacionales" },
+								{ "value": "Instituciones Colectivas" },
+								{ "value": "Unidades de relevamiento" }
+							]
+						}
+					]
+				},
+				{
+					"value": "Paraná",
+					"themes": [
+						{
+							"value": "Todos",
+							"quadros": [
+								{ "value": "Todos" },
+								{ "value": "Características Habitacionales" },
+								{ "value": "Equipamiento del hogar" },
+								{ "value": "Hacinamiento" },
+								{ "value": "Necesidades básicas insatisfechas" },
+								{ "value": "Caracteristicas Economicas" },
+								{ "value": "Composición del hogar" },
+								{ "value": "Educación" },
+								{ "value": "Estructura de población" },
+								{ "value": "Migraciones" },
+								{ "value": "Instituciones Colectivas" },
+								{ "value": "Unidades de relevamiento" }
+							]
+						},
+						{
+							"value": "Hogar",
+							"quadros": [
+								{ "value": "Todos" },
+								{ "value": "Características Habitacionales" },
+								{ "value": "Equipamiento del hogar" },
+								{ "value": "Hacinamiento" },
+								{ "value": "Necesidades básicas insatisfechas" }
+							]
+						},
+						{
+							"value": "Poblacion",
+							"quadros": [
+								{ "value": "Todos" },
+								{ "value": "Caracteristicas Economicas" },
+								{ "value": "Composición del hogar" },
+								{ "value": "Educación" },
+								{ "value": "Equipamiento del hogar" },
+								{ "value": "Estructura de población" },
+								{ "value": "Migraciones" }
+							]
+						},
+						{
+							"value": "Vivienda",
+							"quadros": [
+								{ "value": "Todos" },
+								{ "value": "Características Habitacionales" },
+								{ "value": "Instituciones Colectivas" },
+								{ "value": "Unidades de relevamiento" }
+							]
+						}
+					]
+				},
+				{
+					"value": "San Salvador",
+					"themes": [
+						{
+							"value": "Todos",
+							"quadros": [
+								{ "value": "Todos" },
+								{ "value": "Características Habitacionales" },
+								{ "value": "Equipamiento del hogar" },
+								{ "value": "Hacinamiento" },
+								{ "value": "Necesidades básicas insatisfechas" },
+								{ "value": "Caracteristicas Economicas" },
+								{ "value": "Composición del hogar" },
+								{ "value": "Educación" },
+								{ "value": "Estructura de población" },
+								{ "value": "Migraciones" },
+								{ "value": "Instituciones Colectivas" },
+								{ "value": "Unidades de relevamiento" }
+							]
+						},
+						{
+							"value": "Hogar",
+							"quadros": [
+								{ "value": "Todos" },
+								{ "value": "Características Habitacionales" },
+								{ "value": "Equipamiento del hogar" },
+								{ "value": "Hacinamiento" },
+								{ "value": "Necesidades básicas insatisfechas" }
+							]
+						},
+						{
+							"value": "Poblacion",
+							"quadros": [
+								{ "value": "Todos" },
+								{ "value": "Caracteristicas Economicas" },
+								{ "value": "Composición del hogar" },
+								{ "value": "Educación" },
+								{ "value": "Equipamiento del hogar" },
+								{ "value": "Estructura de población" },
+								{ "value": "Migraciones" }
+							]
+						},
+						{
+							"value": "Vivienda",
+							"quadros": [
+								{ "value": "Todos" },
+								{ "value": "Características Habitacionales" },
+								{ "value": "Instituciones Colectivas" },
+								{ "value": "Unidades de relevamiento" }
+							]
+						}
+					]
+				},
+				{
+					"value": "Tala",
+					"themes": [
+						{
+							"value": "Todos",
+							"quadros": [
+								{ "value": "Todos" },
+								{ "value": "Características Habitacionales" },
+								{ "value": "Equipamiento del hogar" },
+								{ "value": "Hacinamiento" },
+								{ "value": "Necesidades básicas insatisfechas" },
+								{ "value": "Caracteristicas Economicas" },
+								{ "value": "Composición del hogar" },
+								{ "value": "Educación" },
+								{ "value": "Estructura de población" },
+								{ "value": "Migraciones" },
+								{ "value": "Instituciones Colectivas" },
+								{ "value": "Unidades de relevamiento" }
+							]
+						},
+						{
+							"value": "Hogar",
+							"quadros": [
+								{ "value": "Todos" },
+								{ "value": "Características Habitacionales" },
+								{ "value": "Equipamiento del hogar" },
+								{ "value": "Hacinamiento" },
+								{ "value": "Necesidades básicas insatisfechas" }
+							]
+						},
+						{
+							"value": "Poblacion",
+							"quadros": [
+								{ "value": "Todos" },
+								{ "value": "Caracteristicas Economicas" },
+								{ "value": "Composición del hogar" },
+								{ "value": "Educación" },
+								{ "value": "Equipamiento del hogar" },
+								{ "value": "Estructura de población" },
+								{ "value": "Migraciones" }
+							]
+						},
+						{
+							"value": "Vivienda",
+							"quadros": [
+								{ "value": "Todos" },
+								{ "value": "Características Habitacionales" },
+								{ "value": "Instituciones Colectivas" },
+								{ "value": "Unidades de relevamiento" }
+							]
+						}
+					]
+				},
+				{
+					"value": "Uruguay",
+					"themes": [
+						{
+							"value": "Todos",
+							"quadros": [
+								{ "value": "Todos" },
+								{ "value": "Características Habitacionales" },
+								{ "value": "Equipamiento del hogar" },
+								{ "value": "Hacinamiento" },
+								{ "value": "Necesidades básicas insatisfechas" },
+								{ "value": "Caracteristicas Economicas" },
+								{ "value": "Composición del hogar" },
+								{ "value": "Educación" },
+								{ "value": "Estructura de población" },
+								{ "value": "Migraciones" },
+								{ "value": "Instituciones Colectivas" },
+								{ "value": "Unidades de relevamiento" }
+							]
+						},
+						{
+							"value": "Hogar",
+							"quadros": [
+								{ "value": "Todos" },
+								{ "value": "Características Habitacionales" },
+								{ "value": "Equipamiento del hogar" },
+								{ "value": "Hacinamiento" },
+								{ "value": "Necesidades básicas insatisfechas" }
+							]
+						},
+						{
+							"value": "Poblacion",
+							"quadros": [
+								{ "value": "Todos" },
+								{ "value": "Caracteristicas Economicas" },
+								{ "value": "Composición del hogar" },
+								{ "value": "Educación" },
+								{ "value": "Equipamiento del hogar" },
+								{ "value": "Estructura de población" },
+								{ "value": "Migraciones" }
+							]
+						},
+						{
+							"value": "Vivienda",
+							"quadros": [
+								{ "value": "Todos" },
+								{ "value": "Características Habitacionales" },
+								{ "value": "Instituciones Colectivas" },
+								{ "value": "Unidades de relevamiento" }
+							]
+						}
+					]
+				},
+				{
+					"value": "Victoria",
+					"themes": [
+						{
+							"value": "Todos",
+							"quadros": [
+								{ "value": "Todos" },
+								{ "value": "Características Habitacionales" },
+								{ "value": "Equipamiento del hogar" },
+								{ "value": "Hacinamiento" },
+								{ "value": "Necesidades básicas insatisfechas" },
+								{ "value": "Caracteristicas Economicas" },
+								{ "value": "Composición del hogar" },
+								{ "value": "Educación" },
+								{ "value": "Estructura de población" },
+								{ "value": "Migraciones" },
+								{ "value": "Instituciones Colectivas" },
+								{ "value": "Unidades de relevamiento" }
+							]
+						},
+						{
+							"value": "Hogar",
+							"quadros": [
+								{ "value": "Todos" },
+								{ "value": "Características Habitacionales" },
+								{ "value": "Equipamiento del hogar" },
+								{ "value": "Hacinamiento" },
+								{ "value": "Necesidades básicas insatisfechas" }
+							]
+						},
+						{
+							"value": "Poblacion",
+							"quadros": [
+								{ "value": "Todos" },
+								{ "value": "Caracteristicas Economicas" },
+								{ "value": "Composición del hogar" },
+								{ "value": "Educación" },
+								{ "value": "Equipamiento del hogar" },
+								{ "value": "Estructura de población" },
+								{ "value": "Migraciones" }
+							]
+						},
+						{
+							"value": "Vivienda",
+							"quadros": [
+								{ "value": "Todos" },
+								{ "value": "Características Habitacionales" },
+								{ "value": "Instituciones Colectivas" },
+								{ "value": "Unidades de relevamiento" }
+							]
+						}
+					]
+				},
+				{
+					"value": "Villaguay",
+					"themes": [
+						{
+							"value": "Todos",
+							"quadros": [
+								{ "value": "Todos" },
+								{ "value": "Características Habitacionales" },
+								{ "value": "Equipamiento del hogar" },
+								{ "value": "Hacinamiento" },
+								{ "value": "Necesidades básicas insatisfechas" },
+								{ "value": "Caracteristicas Economicas" },
+								{ "value": "Composición del hogar" },
+								{ "value": "Educación" },
+								{ "value": "Estructura de población" },
+								{ "value": "Migraciones" },
+								{ "value": "Instituciones Colectivas" },
+								{ "value": "Unidades de relevamiento" }
+							]
+						},
+						{
+							"value": "Hogar",
+							"quadros": [
+								{ "value": "Todos" },
+								{ "value": "Características Habitacionales" },
+								{ "value": "Equipamiento del hogar" },
+								{ "value": "Hacinamiento" },
+								{ "value": "Necesidades básicas insatisfechas" }
+							]
+						},
+						{
+							"value": "Poblacion",
+							"quadros": [
+								{ "value": "Todos" },
+								{ "value": "Caracteristicas Economicas" },
+								{ "value": "Composición del hogar" },
+								{ "value": "Educación" },
+								{ "value": "Equipamiento del hogar" },
+								{ "value": "Estructura de población" },
+								{ "value": "Migraciones" }
+							]
+						},
+						{
+							"value": "Vivienda",
+							"quadros": [
+								{ "value": "Todos" },
+								{ "value": "Características Habitacionales" },
+								{ "value": "Instituciones Colectivas" },
+								{ "value": "Unidades de relevamiento" }
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"value": 2022,
+			"departments": [
+				{
+					"value": "Todos",
+					"themes": [
+						{
+							"value": "Todos",
+							"quadros": [
+								{ "value": "Todos" },
+								{ "value": "Estructura de población" }
+							]
+						},
+						{
+							"value": "Poblacion",
+							"quadros": [
+								{ "value": "Todos" },
+								{ "value": "Estructura de población" }
+							]
+						}
+					]
+				},
+				{
+					"value": "Entre Ríos",
+					"themes": [
+						{
+							"value": "Todos",
+							"quadros": [
+								{ "value": "Todos" },
+								{ "value": "Estructura de población" }
+							]
+						},
+						{
+							"value": "Poblacion",
+							"quadros": [
+								{ "value": "Todos" },
+								{ "value": "Estructura de población" }
+							]
+						}
+					]
+				}
+			]
+		}
+	]
+}
