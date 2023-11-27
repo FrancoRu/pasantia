@@ -1,6 +1,7 @@
 <?php
 require_once './controller/quadroControllers.php';
 require_once './controller/initController.php';
+require_once './controller/formQuadroController.php';
 require 'vendor/autoload.php';
 header('Content-Type: application/json; charset=UTF-8');
 header('Access-Control-Allow-Origin: *');
@@ -32,11 +33,18 @@ if (!isset($_SESSION['state'])) {
 
 
 
-$url = parse_url($_SERVER['HTTP_REFERER']);
+$url = parse_url($_SERVER['REQUEST_URI']);
+if (
+    isset($url['path']) &&
+    strpos($url['path'], '/form') !== false &&
+    $_SERVER['REQUEST_METHOD'] === 'GET'
+) {
+    FormQuadroController::getInfo($url);
+}
+
 if (
     $_SERVER['REQUEST_METHOD'] === 'POST'
 ) {
-    error_log('entro al post');
     $result = $controller->getQuadro();
     echo $result;
 }

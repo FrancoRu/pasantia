@@ -7,8 +7,14 @@ class FormQuadroController
     {
     }
 
-    public static function getInfo()
+    public static function getInfo($url)
     {
-        InitService::getInfo();
+
+        $args = [];
+        foreach ($_GET as $key => $value) {
+            $args[$key] = $value;
+        }
+        echo json_encode(InitService::getThemes($args), JSON_UNESCAPED_UNICODE);
+        exit();
     }
 }

@@ -1,23 +1,13 @@
 <?php
 
-require_once 'DBManager.php';
+require_once 'DBPreapareQuery.php';
 
 class InitService
 {
-    private static $db;
-    private static $stmt;
-
-    private static function initializeDatabase()
-    {
-        if (self::$db === null) {
-            self::$db = DBManagerFactory::getInstance()->createDatabase();
-            self::$stmt = self::$db->connect();
-        }
-    }
 
     public static function getData()
     {
-        self::initializeDatabase();
+        DBPrepareQuery::getInstance();
 
         $query = 'SELECT DISTINCT
         C.id_censo_anio, D.nombre_departamento 
@@ -40,14 +30,17 @@ class InitService
                 T.tematica_descripcion ASC, 
                 Cu.cuadro_tematica_descripcion ASC;';
 
-        $statement = self::$stmt->prepare($query);
-        if (!$statement) {
-            throw new Exception("Error en la preparación de la consulta SQL.");
-        }
 
-        $statement->execute();
+        // $statement = self::$stmt->prepare($query);
+        // if (!$statement) {
+        //     throw new Exception("Error en la preparación de la consulta SQL.");
+        // }
 
-        $result = $statement->get_result();
+        // $statement->execute();
+
+        //$result = $statement->get_result();
+
+        $result = DBPrepareQuery::searchData($query);
 
         $data = [];
         $data["censos"] = [];
@@ -160,24 +153,81 @@ class InitService
         }
     }
 
-    public static function getThemes()
+    public static function getThemes($args)
     {
-        self::initializeDatabase();
-        $query = 'SELECT Cu.cuadro_tematica-descripcion FROM tematica_has_cuadro THC
-        INNER JOIN tematica T
-        ON T.id_tematica = tematica_id_tematica
-        INNER JOIN cuadro Cu
-        ON Cu.id_cuadro = THC.cuadro_id_cuadro
-        INNER JOIN registro R
-        ON R.
-        WHERE ';
-        $statement = self::$stmt->prepare($query);
-        if (!$statement) {
-            throw new Exception("Error en la preparación de la consulta SQL.");
+        DBPrepareQuery::getInstance();
+        $select = self::getSelect(array_key_last($args));
+        $query = "SELECT DISTINCT $select as 'value'
+        FROM registro R
+    	INNER JOIN titulo_cuadro TC 
+    	ON TC.ID = R.titulo_cuadro_id_registro
+    	INNER JOIN cuadro C 
+    	ON C.id_cuadro = TC.Cuadro_id
+    	INNER JOIN tematica TEM 
+    	ON TEM.id_tematica = TC.Tematica_id
+    	INNER JOIN censo_has_departamento CHD 
+    	ON CHD.id_censo_has_departamento = R.Censo_has_departamento_id_registro
+    	INNER JOIN departamento DEP 
+    	ON DEP.id_departamento = CHD.Departamento_id_departamento
+    	INNER JOIN censo CEN 
+    	ON CEN.id_censo_anio = CHD.Censo_id_censo";
+
+        $conditions = array();
+
+        //Recorro todos los elementos de $args para saber que condiciones se agregaran
+        foreach ($args as $key => $arg) {
+            $conditions[] = self::getCondition($key);
         }
 
-        $statement->execute();
+        //Si no esta vacio, esto indica que hay condiciones de busqueda, por lo tanto concateno
+        if (!empty($conditions)) {
+            $query .= " WHERE " . implode(" AND ", $conditions);
+        }
 
-        $result = $statement->get_result();
+        if (empty($args)) {
+            $args = null;
+        }
+
+        $result = DBPrepareQuery::searchData($query, $args);
+
+        $results = [
+            'value' => []
+        ];
+        while ($row = $result->fetch_assoc()) {
+            $results['value'][] = $row;
+        }
+        return $results;
+    }
+
+    private static function getCondition($arg)
+    {
+        switch ($arg) {
+            case "censo":
+                return "CEN.id_censo_anio = ?";
+            case "department":
+                return "DEP.nombre_departamento = ?";
+            case "theme":
+                return "TEM.tematica_descripcion = ?";
+            case "quadro":
+                return "C.cuadro_tematica_descripcion = ?";
+            default:
+                throw new Exception('Incorrect number of arguments');
+        }
+    }
+
+    private static function getSelect($search)
+    {
+        switch ($search) {
+            case 'censo':
+                return 'DEP.nombre_departamento';
+            case 'department':
+                return 'TEM.tematica_descripcion';
+            case 'theme':
+                return 'C.cuadro_tematica_descripcion';
+            case 'quadro':
+                return 'TC.titulo_cuadro_titulo';
+            default:
+                return 'CEN.id_censo_anio';
+        }
     }
 }

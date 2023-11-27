@@ -15,7 +15,6 @@ function startAnimation() {
 			$('#charge').addClass('hidden')
 			$('#content-charge').addClass('hidden')
 			$('#img-static').removeClass('hidden')
-			$.notify('Busqueda exitosa', 'success')
 			resolve()
 		}, 2300)
 	})

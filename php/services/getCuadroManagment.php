@@ -1,6 +1,7 @@
 <?php
 
-require_once 'DBManager.php';
+require_once 'DBPreapareQuery.php';
+
 // Definicion de una interfaz para abstraer la consulta de datos.
 interface QueryInterface
 {
@@ -10,59 +11,22 @@ interface QueryInterface
 // Implementacion de la consulta de datos.
 class QuadroQuery implements QueryInterface
 {
-    private $db;
-    private $stmt;
-    public function __construct()
-    {
-        $this->db = DBManagerFactory::getInstance()->createDatabase();
-        $this->stmt = $this->db->connect();
-    }
 
     //Funcion principal de busqueda
     public function searchQuadro($args)
     {
         try {
-            $cleanedArgs = $this->cleanParam($args); //Limpio lo paramentros de entrada
+            DBPrepareQuery::getInstance();
+            $cleanedArgs = DBPrepareQuery::cleanParam($args); //Limpio lo paramentros de entrada
             $query = $this->getQuery($cleanedArgs); //Me traigo la query segun los parametros pasados
-            $statement = $this->stmt->prepare($query); //Preparo la misma para ser ejecutada
 
-            if (!$statement) {
-                throw new Exception("Error en la preparación de la consulta SQL.");
-            }
-
-            $types = str_repeat('s', count($cleanedArgs)); //Crep un sstring dependiendo de la cantidad de datos a parametrizar
-            $values = $this->transformArray($cleanedArgs); //Lo transformo en un array simple
-            array_unshift($values, $types); //posiciono al frente el tipo de datos de la parametrizacion
-            $statement->bind_param(...$values); //Preparo la parametrizacion
-            $statement->execute(); //Ejecuto la query
-            return $statement->get_result(); //Retorno el resultado, ya haya sido exitoso o no 
+            return DBPrepareQuery::searchData($query, $cleanedArgs);
         } catch (Exception $e) {
             return $e->getMessage();
         }
     }
 
-    //Funcion que elimina todos los caracteres de escape para prevenir SQL injection
-    private function cleanParam($args)
-    {
-        $newArgs = array();
-        foreach ($args as $key => $arg) {
-            $newArgs[$key] = mysqli_real_escape_string($this->stmt, $arg);
-        }
 
-        return $newArgs;
-    }
-
-    //Transformo de un array asosiativo a uno comun
-    //con el fin de poder usarlo en la funcion bind_param() de msqli
-    //para lograr dinamismo
-    private function transformArray($args)
-    {
-        $newArgs = array();
-        foreach ($args as $arg) {
-            array_push($newArgs, $arg);
-        }
-        return $newArgs;
-    }
 
     //Funcion que funciona como query dinámica
     private function getQuery($args)

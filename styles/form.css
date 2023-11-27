@@ -56,3 +56,24 @@ label {
 .form-select option:hover {
 	background-color: #a3cf62;
 }
+
+#container-form-ABM {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+	justify-content: center;
+	align-items: center;
+	min-width: 100vw;
+	min-height: 100vh;
+}
+
+.sr-only {
+	position: absolute !important;
+	width: 1px !important;
+	height: 1px !important;
+	margin: -1px !important;
+	padding: 0 !important;
+	overflow: hidden !important;
+	clip: rect(0, 0, 0, 0) !important;
+	border: 0 !important;
+}

@@ -3,6 +3,7 @@ $(document).ready(function () {
 		event.preventDefault()
 		try {
 			const data = await handleSubmit()
+			console.log(data)
 			if (data !== false) {
 				await createTable(data)
 			}

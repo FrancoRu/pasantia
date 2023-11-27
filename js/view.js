@@ -67,11 +67,3 @@ function reCharge() {
 	reboot()
 	changeClass()
 }
-// $(document).ready(function () {
-// 	$('#submit').on('click', function () {
-// 		$('.svg-item').css('opacity', 0)
-// 		destroyTable()
-// 		reboot()
-// 		changeClass()
-// 	})
-// })
