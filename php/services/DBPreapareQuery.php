@@ -48,6 +48,11 @@ class DBPrepareQuery
         return $newArgs;
     }
 
+    public static function lastId()
+    {
+        return self::$stmt->insert_id;
+    }
+
     public static function searchData($query, $args = null)
     {
         try {
@@ -60,7 +65,9 @@ class DBPrepareQuery
                     throw new Exception("Error en la preparación de la consulta SQL.");
                 }
 
-                $types = str_repeat('s', count($args)); //Crep un string dependiendo de la cantidad de datos a parametrizar
+                // $types = str_repeat('s', count($args)); //Crea un string dependiendo de la cantidad de datos a parametrizar
+
+                $types = self::mapTypes($args);
 
                 $values = self::transformArray($args); //Lo transformo en un array simple
 
@@ -78,4 +85,25 @@ class DBPrepareQuery
             return $e->getMessage();
         }
     }
+
+    private static function mapTypes($args)
+    {
+        $types = '';
+        foreach ($args as $key => $value) {
+            $types .= substr($key, 0, 1);
+        }
+        return $types;
+    }
+
+    // private static function type($arg)
+    // {
+    //     switch (str_starts_with($arg)) {
+    //         case 'fraccion':
+    //             return 'i';
+    //             break;
+    //         default:
+    //             return 's';
+    //             break;
+    //     }
+    // }
 }

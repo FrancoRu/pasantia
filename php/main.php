@@ -34,13 +34,18 @@ if (!isset($_SESSION['state'])) {
 
 
 $url = parse_url($_SERVER['REQUEST_URI']);
-if (
-    isset($url['path']) &&
-    strpos($url['path'], '/form') !== false &&
-    $_SERVER['REQUEST_METHOD'] === 'GET'
-) {
-    FormQuadroController::getInfo($url);
+if (isset($_GET['op']) && $_GET['op'] === 'insert_cuadro') {
+    $controller->addQuadro();
+    exit;
 }
+
+// if (
+//     isset($url['path']) &&
+//     strpos($url['path'], '/form') !== false &&
+//     $_SERVER['REQUEST_METHOD'] === 'GET'
+// ) {
+//     FormQuadroController::getInfo($url);
+// }
 
 if (
     $_SERVER['REQUEST_METHOD'] === 'POST'
@@ -49,8 +54,8 @@ if (
     echo $result;
 }
 
-if (
-    $_SERVER['REQUEST_METHOD'] === 'GET'
-) {
-    echo InitController::getData();
-}
+// if (
+//     $_SERVER['REQUEST_METHOD'] === 'GET'
+// ) {
+//     echo InitController::getData();
+// }

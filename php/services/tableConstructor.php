@@ -58,7 +58,7 @@ class Construct implements ConstructorTable
                 if (strpos($registerValue, "https://www.dgec.gob.ar/buscador/descargas/") !== false) {
                     $tbody .= '<td><a href="' . $registerValue . '" download><img src="buscador/../resource/img/excel-icon.svg"></a></td>';
                 } else {
-                    $tbody .= '<td>' . $registerValue . '</td>';
+                    $tbody .= '<td class="text-break">' . $registerValue . '</td>';
                 }
             }
             $tbody .= '</tr>';

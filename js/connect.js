@@ -16,7 +16,7 @@ $(document).ready(function () {
 
 async function handleSubmit() {
 	const formData = new FormData(form)
-	const url = 'buscador/../php/main.php'
+	const url = 'buscador/../php/main.php?op=get_cuadro'
 	formDataInitial = JSON.parse(localStorage.getItem('body-form'))
 	formDataObject = transformFormToObject(formData)
 	if (

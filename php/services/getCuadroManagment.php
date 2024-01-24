@@ -6,6 +6,7 @@ require_once 'DBPreapareQuery.php';
 interface QueryInterface
 {
     public function searchQuadro($args);
+    public function addQuadro($args);
 }
 
 // Implementacion de la consulta de datos.
@@ -18,7 +19,7 @@ class QuadroQuery implements QueryInterface
         try {
             DBPrepareQuery::getInstance();
             $cleanedArgs = DBPrepareQuery::cleanParam($args); //Limpio lo paramentros de entrada
-            $query = $this->getQuery($cleanedArgs); //Me traigo la query segun los parametros pasados
+            $query = $this->getQuerySearch($cleanedArgs); //Me traigo la query segun los parametros pasados
 
             return DBPrepareQuery::searchData($query, $cleanedArgs);
         } catch (Exception $e) {
@@ -26,10 +27,38 @@ class QuadroQuery implements QueryInterface
         }
     }
 
+    public function addQuadro($args)
+    {
+        try {
 
+            DBPrepareQuery::getInstance();
+            $cleanedArgs = DBPrepareQuery::cleanParam($args); //Limpio lo paramentros de entrada
 
-    //Funcion que funciona como query dinámica
-    private function getQuery($args)
+            // // error_log(json_encode($cleanedArgs));
+            if (count($cleanedArgs) != count($args)) {
+                throw new Error('Parametros con problemas de seguridad');
+            }
+
+            $query = 'CALL insertData(?,?,?,?,?,?,?)';
+            $result = DBPrepareQuery::searchData($query, $cleanedArgs);
+            error_log('Este es el contenido de result: ' . json_encode($result));
+            while ($row = $result->fetch_assoc()) {
+                return [
+                    'id' => $row['id_reg'],
+                    'filename' => $row['fileName'],
+                    'path' => $row['filePath']
+                ];
+            }
+
+            return false;
+        } catch (Exception $e) {
+            error_log($e->getMessage());
+            return false;
+        }
+    }
+
+    //Funcion que funciona como query dinámica para la busqueda de cuadros
+    private function getQuerySearch($args)
     {
         //La siguiente query devolvera la url donde s encuentra alojado el cuadro
         //El titulo del cuadro, el nombre de departamento del cual pertenece
@@ -39,20 +68,26 @@ class QuadroQuery implements QueryInterface
         //titulo: Hogares por material predominante de los pisos de la vivienda por área de gobierno local, fracción y radio censal. Año 2010.
         //departamento Colón
         //codificacion: 1H
-        $query = "SELECT R.url_cuadro_xlsx AS XLSX, CONCAT(TC.id_titulo_cuadro, TC.Tematica_id, '-', DEP.nombre_departamento, '-', TC.titulo_cuadro_titulo) AS Titulo
+        $query = "SELECT R.url_cuadro_xlsx AS XLSX, CONCAT(TC.id_titulo_cuadro, TC.Tematica_id, ' - ', D.nombre_departamento, ' - ', TC.titulo_cuadro_titulo, ' ', EX.descripcion_extension,' - ',C.id_censo_anio,'.') AS Titulo
         FROM registro R
-		INNER JOIN titulo_cuadro TC 
-		ON TC.ID = R.titulo_cuadro_id_registro
-		INNER JOIN cuadro C 
-		ON C.id_cuadro = TC.Cuadro_id
-		INNER JOIN tematica TEM 
-		ON TEM.id_tematica = TC.Tematica_id
-		INNER JOIN censo_has_departamento CHD 
-		ON CHD.id_censo_has_departamento = R.Censo_has_departamento_id_registro
-		INNER JOIN departamento DEP 
-		ON DEP.id_departamento = CHD.Departamento_id_departamento
-		INNER JOIN censo CEN 
-		ON CEN.id_censo_anio = CHD.Censo_id_censo";
+                INNER JOIN censo_has_departamento CD
+                ON CD.id_censo_has_departamento =  R.Censo_has_departamento_id_registro
+                INNER JOIN censo C
+                ON CD.Censo_id_censo = C.id_censo_anio 
+                INNER JOIN departamento D 
+                ON D.id_departamento = CD.Departamento_id_departamento
+                INNER JOIN registro_titulos RT
+            ON RT.ID = R.Titulo_cuadro_id_registro
+            INNER JOIN extension EX
+            ON EX.id_extension = RT.id_extension
+            INNER JOIN acronimo AC
+            ON AC.id = RT.id_acron
+            INNER JOIN titulo_cuadro TC
+            ON TC.ID = RT.id_titulo
+            INNER JOIN cuadro Cu
+            ON Cu.id_cuadro = TC.Cuadro_id
+            INNER JOIN tematica T
+            ON T.id_tematica = TC.Tematica_id";
 
         //Creo un array para determinar que condiciones de busqueda abra
         //Esto es: si abra o no un WHERE y AND
@@ -64,13 +99,14 @@ class QuadroQuery implements QueryInterface
             $conditions[] = $this->getCondition($key);
         }
 
+        error_log('condiciones: ' . json_encode($conditions));
         //Si no esta vacio, esto indica que hay condiciones de busqueda, por lo tanto concateno
         if (!empty($conditions)) {
             $query .= " WHERE " . implode(" AND ", $conditions);
         }
 
         //Clausula de ordenamiento final para que quede mas facil la busqueda
-        $query .= " ORDER BY DEP.nombre_departamento, TC.id_titulo_cuadro ASC;";
+        $query .= " ORDER BY D.nombre_departamento, TC.id_titulo_cuadro ASC;";
         return $query;
     }
 
@@ -78,15 +114,16 @@ class QuadroQuery implements QueryInterface
     private function getCondition($arg)
     {
         switch ($arg) {
-            case "censo":
-                return "CEN.id_censo_anio = ?";
-            case "department":
-                return "DEP.nombre_departamento = ?";
-            case "theme":
-                return "TEM.tematica_descripcion = ?";
-            case "quadro":
-                return "C.cuadro_tematica_descripcion = ?";
+            case "i_censo":
+                return "C.id_censo_anio = ?";
+            case "s_department":
+                return "D.nombre_departamento = ?";
+            case "s_theme":
+                return "T.tematica_descripcion = ?";
+            case "s_quadro":
+                return "Cu.cuadro_tematica_descripcion = ?";
             default:
+                error_log($arg);
                 throw new Exception('Incorrect number of arguments');
         }
     }
@@ -115,24 +152,10 @@ class CuadroManagement implements CuadroManagerInterface
         return $results = $this->query->searchQuadro($args);
     }
 
-    //Devuelve un array asociativo entre: 
-    //La url del cuadro(su ubicacion)
-    //El titulo del mismo
-    //EL nombre de departamento
-    //La codificacion del mismo
-    private function getArrayQuadros($result)
+    //Funcion accesible desde el sdt
+    public function addQuadro($args)
     {
-        $cuadros = array();
-        while ($row = $result->fetch_assoc()) {
-            $cuadros[] = array(
-                'url_cuadro' => $row['url_cuadro_xlsx'],
-                'cuadro_titulo' => $row['titulo_cuadro_titulo'],
-                'departamento_cuadro' => $row['nombre_departamento'],
-                'cuadro_tematica' => $row['cuadro_tematica']
-            );
-        }
-
-        return $cuadros;
+        return $results = $this->query->addQuadro($args);
     }
 }
 

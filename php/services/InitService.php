@@ -10,7 +10,7 @@ class InitService
         DBPrepareQuery::getInstance();
 
         $query = 'SELECT DISTINCT
-        C.id_censo_anio, D.nombre_departamento 
+        C.id_censo_anio, D.nombre_departamento, D.id_departamento 
         , T.tematica_descripcion, Cu.cuadro_tematica_descripcion
                 FROM registro R
                 INNER JOIN censo_has_departamento CD
@@ -18,27 +18,23 @@ class InitService
                 INNER JOIN censo C
                 ON CD.Censo_id_censo = C.id_censo_anio 
                 INNER JOIN departamento D 
-                ON D.id_departamento = CD.Departamento_id_departamento 
-                INNER JOIN titulo_cuadro TC
-                ON TC.ID = R.Titulo_cuadro_id_registro
-                INNER JOIN tematica T 
-                ON T.id_tematica = TC.Tematica_id
-                INNER JOIN cuadro Cu
-                ON Cu.id_cuadro = TC.Cuadro_id
+                ON D.id_departamento = CD.Departamento_id_departamento
+                INNER JOIN registro_titulos RT
+            ON RT.ID = R.Titulo_cuadro_id_registro
+            INNER JOIN extension EX
+            ON EX.id_extension = RT.id_extension
+            INNER JOIN acronimo AC
+            ON AC.id = RT.id_acron
+            INNER JOIN titulo_cuadro TC
+            ON TC.ID = RT.id_titulo
+            INNER JOIN cuadro Cu
+            ON Cu.id_cuadro = TC.Cuadro_id
+            INNER JOIN tematica T
+            ON T.id_tematica = TC.Tematica_id
                 ORDER BY C.id_censo_anio ASC,
                 D.nombre_departamento ASC, 
                 T.tematica_descripcion ASC, 
                 Cu.cuadro_tematica_descripcion ASC;';
-
-
-        // $statement = self::$stmt->prepare($query);
-        // if (!$statement) {
-        //     throw new Exception("Error en la preparación de la consulta SQL.");
-        // }
-
-        // $statement->execute();
-
-        //$result = $statement->get_result();
 
         $result = DBPrepareQuery::searchData($query);
 
@@ -52,9 +48,11 @@ class InitService
 
         while ($row = $result->fetch_assoc()) {
             $year = $row['id_censo_anio'];
+            if ($year == 2022) error_log($year);
             $department = $row['nombre_departamento'];
             $theme = $row['tematica_descripcion'];
             $quadro = $row['cuadro_tematica_descripcion'];
+            $id_dep = $row['id_departamento'];
 
             if ($lastYear !== $year) {
                 $data["censos"][] = [
@@ -65,6 +63,7 @@ class InitService
                 $indexYear++;
                 $lastDepartment = null;
                 $data["censos"][$indexYear]["departments"][] = [
+                    "id" => "0",
                     "value" => "Todos",
                     "themes" => []
                 ];
@@ -77,6 +76,7 @@ class InitService
             // Inicializar el índice del departamento si cambia el departamento
             if ($lastDepartment !== $department) {
                 $data["censos"][$indexYear]["departments"][] = [
+                    "id" => $id_dep,
                     "value" => $department,
                     "themes" => []
                 ];
@@ -178,7 +178,6 @@ class InitService
         foreach ($args as $key => $arg) {
             $conditions[] = self::getCondition($key);
         }
-
         //Si no esta vacio, esto indica que hay condiciones de busqueda, por lo tanto concateno
         if (!empty($conditions)) {
             $query .= " WHERE " . implode(" AND ", $conditions);
@@ -193,9 +192,11 @@ class InitService
         $results = [
             'value' => []
         ];
+
         while ($row = $result->fetch_assoc()) {
             $results['value'][] = $row;
         }
+
         return $results;
     }
 

@@ -54,3 +54,7 @@ nav a img {
 .hidden {
 	display: none !important;
 }
+
+.text-pretty {
+	text-wrap: wrap !important;
+}
