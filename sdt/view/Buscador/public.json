@@ -1,0 +1,21 @@
+{
+	"department": [
+		{ "id": "008", "value": "Colón" },
+		{ "id": "015", "value": "Concordia" },
+		{ "id": "021", "value": "Diamante" },
+		{ "id": "028", "value": "Federación" },
+		{ "id": "035", "value": "Federal" },
+		{ "id": "042", "value": "Feliciano" },
+		{ "id": "049", "value": "Gualeguay" },
+		{ "id": "056", "value": "Gualeguaychú" },
+		{ "id": "063", "value": "Islas" },
+		{ "id": "070", "value": "La Paz" },
+		{ "id": "077", "value": "Nogoyá" },
+		{ "id": "084", "value": "Paraná" },
+		{ "id": "088", "value": "San Salvador" },
+		{ "id": "091", "value": "Tala" },
+		{ "id": "098", "value": "Uruguay" },
+		{ "id": "105", "value": "Victoria" },
+		{ "id": "113", "value": "Villaguay" }
+	]
+}

@@ -1,0 +1,23 @@
+{
+	"departments": [
+		{ "value": "Entre Rios", "id": "30" },
+		{ "value": "Todos", "id": "000" },
+		{ "value": "Colón", "id": "008" },
+		{ "value": "Concordia", "id": "015" },
+		{ "value": "Diamante", "id": "021" },
+		{ "value": "Federación", "id": "028" },
+		{ "value": "Federal", "id": "035" },
+		{ "value": "Feliciano", "id": "042" },
+		{ "value": "Gualeguay", "id": "049" },
+		{ "value": "Gualeguaychú", "id": "056" },
+		{ "value": "Islas", "id": "063" },
+		{ "value": "La Paz", "id": "070" },
+		{ "value": "Nogoyá", "id": "077" },
+		{ "value": "Paraná", "id": "084" },
+		{ "value": "San Salvador", "id": "088" },
+		{ "value": "Tala", "id": "091" },
+		{ "value": "Uruguay", "id": "098" },
+		{ "value": "Victoria", "id": "105" },
+		{ "value": "Villaguay", "id": "113" }
+	]
+}
