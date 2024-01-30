@@ -1,0 +1,216 @@
+{
+	"chapter": [
+		{
+			"value": 1,
+			"description": "Capitulo 1 Aspectos Generales",
+			"subchapter": [
+				{
+					"value": 0,
+					"description": "Subcapitulo 1.1 Historia de la provincia de Entre Rios",
+					"quadro": []
+				},
+				{
+					"value": 1,
+					"description": "Subcapitulo 1.2 La constitución y los símbolos provinciales",
+					"quadro": []
+				},
+				{
+					"value": 2,
+					"description": "Subcapitulo 1.3 Datos geográficos",
+					"quadro": []
+				},
+				{
+					"value": 3,
+					"description": "Subcapitulo 1.4 Feriados y fiestas populares",
+					"quadro": []
+				}
+			]
+		},
+		{
+			"value": 2,
+			"description": "Capitulo 2 Población",
+			"subchapter": [
+				{
+					"value": 4,
+					"description": "Subcapitulo 2.1 Sintesis histórica de los censos nacionales de población",
+					"quadro": []
+				},
+				{
+					"value": 5,
+					"description": "Subcapitulo 2.2 Información demográfrica",
+					"quadro": []
+				},
+				{
+					"value": 6,
+					"description": "Subcapitulo 2.3 Proyecciones y estimaciones",
+					"quadro": []
+				}
+			]
+		},
+		{
+			"value": 3,
+			"description": "Capitulo 3 Aspectos Sociales",
+			"subchapter": [
+				{
+					"value": 7,
+					"description": "Subcapitulo 3.1 Educación",
+					"quadro": []
+				},
+				{
+					"value": 8,
+					"description": "Subcapitulo 3.2 Salud",
+					"quadro": []
+				},
+				{
+					"value": 9,
+					"description": "Subcapitulo 3.3 Trabajo",
+					"quadro": []
+				},
+				{
+					"value": 10,
+					"description": "Subcapitulo 3.4 Condiciones de vida",
+					"quadro": []
+				},
+				{
+					"value": 11,
+					"description": "Subcapitulo 3.5 Viviendas y hogares",
+					"quadro": []
+				},
+				{
+					"value": 12,
+					"description": "Subcapitulo 3.6 Seguridad social",
+					"quadro": []
+				},
+				{
+					"value": 13,
+					"description": "Subcapitulo 3.7 SEGURIDAD PÚBLICA",
+					"quadro": []
+				},
+				{
+					"value": 14,
+					"description": "Subcapitulo 3.8 TIEMPO LIBRE",
+					"quadro": []
+				},
+				{
+					"value": 15,
+					"description": "Subcapitulo 3.9 Participación electoral",
+					"quadro": []
+				}
+			]
+		},
+		{
+			"value": 4,
+			"description": "Capitulo 4 Aspectos Económicos",
+			"subchapter": [
+				{
+					"value": 16,
+					"description": "Subcapitulo 4.1 Agricultura",
+					"quadro": []
+				},
+				{
+					"value": 17,
+					"description": "Subcapitulo 4.2 Ganaderia, avicultura, apicultura, granja y lecheria",
+					"quadro": []
+				},
+				{
+					"value": 18,
+					"description": "Subcapitulo 4.3 Pesca",
+					"quadro": []
+				},
+				{
+					"value": 19,
+					"description": "Subcapitulo 4.4 Minería",
+					"quadro": []
+				},
+				{
+					"value": 20,
+					"description": "Subcapitulo 4.5 Energía",
+					"quadro": []
+				},
+				{
+					"value": 21,
+					"description": "Subcapitulo 4.6 Industria manufacturera",
+					"quadro": []
+				},
+				{
+					"value": 22,
+					"description": "Subcapitulo 4.7 Construcción",
+					"quadro": []
+				},
+				{
+					"value": 23,
+					"description": "Subcapitulo 4.8 Comercio",
+					"quadro": []
+				},
+				{
+					"value": 24,
+					"description": "Subcapitulo 4.9 Infraestructura vial",
+					"quadro": []
+				},
+				{
+					"value": 25,
+					"description": "Subcapitulo 4.10 Transporte y comunicaciones",
+					"quadro": []
+				},
+				{
+					"value": 26,
+					"description": "Subcapitulo 4.11 Turismo",
+					"quadro": []
+				},
+				{
+					"value": 27,
+					"description": "Subcapitulo 4.12 Otros servicios",
+					"quadro": []
+				}
+			]
+		},
+		{
+			"value": 5,
+			"description": "Capitulo 5 Actividades Financieras",
+			"subchapter": [
+				{
+					"value": 28,
+					"description": "Subcapitulo 5.1 Sistema financiero",
+					"quadro": []
+				},
+				{
+					"value": 29,
+					"description": "Subcapitulo 5.2 Seguros",
+					"quadro": []
+				}
+			]
+		},
+		{
+			"value": 6,
+			"description": "Capitulo 6 Sector Externo",
+			"subchapter": [
+				{
+					"value": 30,
+					"description": "Subcapitulo 6.1 Exportaciones de origen entrerriano por países",
+					"quadro": []
+				},
+				{
+					"value": 31,
+					"description": "Subcapitulo 6.2 Exportaciones de origen entrerriano por productos",
+					"quadro": []
+				}
+			]
+		},
+		{
+			"value": 7,
+			"description": "Capitulo 7 P.B.G.",
+			"subchapter": [
+				{
+					"value": 32,
+					"description": "Subcapitulo 7.1 Producto bruto geográfico",
+					"quadro": []
+				},
+				{
+					"value": 33,
+					"description": "Subcapitulo 7.2 ISAEER",
+					"quadro": []
+				}
+			]
+		}
+	]
+}
