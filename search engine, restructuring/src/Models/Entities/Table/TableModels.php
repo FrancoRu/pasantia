@@ -2,7 +2,9 @@
 
 namespace App\Models\Entities\Table;
 
+use App\Helpers\messageConstructor;
 use App\Models\Entities\GenericEntitiesModel;
+use App\Models\Entities\Validation\ValidationGenericEntitiesModel;
 
 class TableModels
 {
@@ -82,10 +84,17 @@ class TableModels
 
     public function find(array $mixed = null): array
     {
-        $newArr = $this->validateConditions($mixed);
+        $args = [];
+
+        if (isset($mixed['conditions'])) {
+            $args['conditions'] = ValidationGenericEntitiesModel::validateKeys($mixed['conditions'], ['id', 'description']);
+        }
+        if (isset($mixed['select'])) {
+            $args['select'] = ValidationGenericEntitiesModel::validateKeys($mixed['select'], ['id', 'description']);
+        }
         return $this->_model->find(
             $this->tableName,
-            $newArr
+            $args
         );
     }
 
@@ -93,8 +102,8 @@ class TableModels
     {
         return $this->_model->set(
             $this->tableName,
-            $this->validateValues($value),
-            $this->validateConditions($conditions)
+            ValidationGenericEntitiesModel::validateKeys($value, ['description']),
+            ValidationGenericEntitiesModel::validateKeys($conditions, ['id', 'description'])
         );
     }
 
@@ -102,22 +111,19 @@ class TableModels
     {
         return $this->_model->delete(
             $this->tableName,
-            $this->validateConditions($conditions)
+            ValidationGenericEntitiesModel::validateKeys($conditions, ['id', 'description'])
         );
     }
 
-    private function validateConditions(array $conditions): array
+    public function findRecordTable(array $mixed): array
     {
-        $condition = [];
-        if (isset($conditions['id'])) $condition['id'] = $conditions['id'];
-        if (isset($conditions['description'])) $condition['description'] = $conditions['description'];
-        return $condition;
-    }
+        if (count($mixed) != 4) return messageConstructor::templateMessageResponse('fail', [
+            'When carrying out this operation, you should try to send the census data, department, topic and census table'
+        ]);
 
-    private function validateValues(array $values): array
-    {
-        $value = [];
-        if (isset($values['description'])) $value['description'] = $values['description'];
-        return $value;
+        foreach ($mixed as $key => $value) {
+            if ($value === 'T') $mixed[$key] = null;
+        }
+        return $this->_model->callProcedure('getQuadro', $mixed);
     }
 }

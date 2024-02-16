@@ -32,20 +32,13 @@ class DBPrepareQuery
     {
         return $this->pdo->quote(htmlspecialchars($arg));
     }
-    // Transformo de un array asociativo a uno común
-    // con el fin de poder usarlo en la función bindValue() de PDO
-    // para lograr dinamismo
-    private function transformArray($args)
-    {
-        return array_values($args);
-    }
 
     public function lastId()
     {
         return $this->pdo->lastInsertId();
     }
 
-    public function searchData($query, $args = null): array | string
+    public function executeQuery($query, $args = null): array | string
     {
         try {
             $statement = $this->pdo->prepare($query);

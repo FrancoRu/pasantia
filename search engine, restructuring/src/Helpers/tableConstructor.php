@@ -1,29 +1,20 @@
 <?php
+
+namespace App\Helpers;
+
 interface ConstructorTable
 {
     public static function getTable($data);
 }
 
-class Construct implements ConstructorTable
+class tableConstructor implements ConstructorTable
 {
-    private static function transform($result)
+    private static function transform(array $results)
     {
         $table = [
-            'title' => [],  // Arreglo para las columnas
-            'body' => []    // Arreglo para los registros
+            'title' => array_keys($results[0]),  // Arreglo para las columnas
+            'body' => $results
         ];
-        // Verifica que $result sea un objeto válido
-        if ($result && $result->num_rows > 0) {
-            $firstRow = $result->fetch_assoc();
-
-            $table['title'] = array_keys($firstRow);
-
-            // Reinicia el puntero del resultado
-            $result->data_seek(0);
-            while ($row = $result->fetch_assoc()) {
-                $table['body'][] = array_values($row);
-            }
-        }
 
         return $table;
     }
@@ -57,7 +48,7 @@ class Construct implements ConstructorTable
             $tbody .= '<tr>';
             foreach ($arg as $registerValue) {
                 if (strpos($registerValue, "https://www.dgec.gob.ar/buscador/descargas/") !== false) {
-                    $tbody .= '<td><a href="' . $registerValue . '" download><img src="buscador/../resource/img/excel-icon.svg"></a></td>';
+                    $tbody .= '<td><a href="' . $registerValue . '" download><img src="buscadorTemp/../public/resource/img/excel-icon.svg"></a></td>';
                 } else {
                     $tbody .= '<td class="text-break">' . $registerValue . '</td>';
                 }

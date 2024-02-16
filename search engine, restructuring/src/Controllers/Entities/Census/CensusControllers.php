@@ -23,7 +23,7 @@ class CensusControllers
         if (!isset($_POST['id'])) {
             return [
                 'status' => 'fail',
-                'message' => 'It is necessary to send the id, description to be added'
+                'message' => 'It is necessary to send the id and description to be added'
             ];
         };
 

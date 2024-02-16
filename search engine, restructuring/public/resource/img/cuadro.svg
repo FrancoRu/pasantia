@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="372" height="669" viewBox="0 0 372 669">
+  <defs>
+    <filter id="cuadro" x="0" y="0" width="372" height="669" filterUnits="userSpaceOnUse">
+      <feOffset dy="2" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="2" result="blur"/>
+      <feFlood flood-color="#d0d0d0"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g transform="matrix(1, 0, 0, 1, 0, 0)" filter="url(#cuadro)">
+    <g id="cuadro-2" data-name="cuadro" transform="translate(6 4)" fill="#fff" stroke="#979797" stroke-width="0.5">
+      <rect width="360" height="657" rx="10" stroke="none"/>
+      <rect x="0.25" y="0.25" width="359.5" height="656.5" rx="9.75" fill="none"/>
+    </g>
+  </g>
+</svg>

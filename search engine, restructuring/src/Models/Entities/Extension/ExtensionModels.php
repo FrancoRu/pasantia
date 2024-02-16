@@ -3,6 +3,7 @@
 namespace App\Models\Entities\Extension;
 
 use App\Models\Entities\GenericEntitiesModel;
+use App\Models\Entities\Validation\ValidationGenericEntitiesModel;
 
 class ExtensionModels
 {
@@ -26,10 +27,17 @@ class ExtensionModels
 
     public function find(array $mixed = null): array
     {
-        $newArr = $this->validateConditions($mixed);
+        $args = [];
+
+        if (isset($mixed['conditions'])) {
+            $args['conditions'] = ValidationGenericEntitiesModel::validateKeys($mixed['conditions'], ['id', 'description', 'extension']);
+        }
+        if (isset($mixed['select'])) {
+            $args['select'] = ValidationGenericEntitiesModel::validateKeys($mixed['select'], ['id', 'description', 'extension']);
+        }
         return $this->_model->find(
             $this->tableName,
-            $newArr
+            $args
         );
     }
 
@@ -37,8 +45,8 @@ class ExtensionModels
     {
         return $this->_model->set(
             $this->tableName,
-            $this->validateValues($values),
-            $this->validateConditions($conditions)
+            ValidationGenericEntitiesModel::validateKeys($values, ['description', 'extension']),
+            ValidationGenericEntitiesModel::validateKeys($conditions, ['id', 'description', 'extension'])
         );
     }
 
@@ -46,24 +54,7 @@ class ExtensionModels
     {
         return $this->_model->delete(
             $this->tableName,
-            $this->validateConditions($conditions)
+            ValidationGenericEntitiesModel::validateKeys($conditions, ['id', 'description', 'extension'])
         );
-    }
-
-    private function validateConditions(array $conditions): array
-    {
-        $condition = [];
-        if (isset($conditions['id'])) $condition['id'] = $conditions['id'];
-        if (isset($conditions['description'])) $condition['description'] = $conditions['description'];
-        if (isset($conditions['extension'])) $condition['extension'] = $conditions['extension'];
-        return $condition;
-    }
-
-    private function validateValues(array $values): array
-    {
-        $value = [];
-        if (isset($values['description'])) $value['description'] = $values['description'];
-        if (isset($values['extension'])) $value['extension'] = $values['extension'];
-        return $value;
     }
 }

@@ -12,7 +12,7 @@
          colors="true">
     <testsuites>
         <testsuite name="default">
-            <directory>tests/Models/Entities/Censo</directory>
+            <directory>tests/Models/Entities/Census</directory>
         </testsuite>
     </testsuites>
 

@@ -1,5 +1,7 @@
 <?php
 
+namespace App\Helpers;
+
 class TagService
 {
     public static function getFormSearch()

@@ -32,7 +32,7 @@
                     </div>
                     <div class="form-group text-start">
                         <label for="quadro" class="form-label">Temas:</label>
-                        <select class="form-select" id="quadro" name="quadro"></select>
+                        <select class="form-select" id="quadro" name="table"></select>
                     </div>
                     <div class="form-group button-container text-center d-flex justify-content-center">
                         <button type="submit" id="submit" class="btn btn-outline-success">
@@ -42,7 +42,7 @@
                 </form>
             </div>
             <div class="text-center small" id="img-static">
-                <img src="resource/img/Personas.svg" alt="Imagen" class="img-fluid mx-auto d-block" />
+                <img src="public/resource/img/Personas.svg" alt="Imagen" class="img-fluid mx-auto d-block" />
             </div>
             <?php include_once __DIR__ . '/../layout/charge.php' ?>
         </main>

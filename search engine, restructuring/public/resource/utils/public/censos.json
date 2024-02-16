@@ -1,0 +1,12 @@
+{
+	"censos": [
+		{
+			"value": 2010,
+			"desc": "Censo 2010-cuadros por muni frac y radio"
+		},
+		{
+			"value": 2022,
+			"desc": "Censo 2022 dato provisionales"
+		}
+	]
+}

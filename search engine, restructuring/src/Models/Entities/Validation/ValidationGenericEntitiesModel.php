@@ -5,7 +5,7 @@ namespace App\Models\Entities\Validation;
 class ValidationGenericEntitiesModel
 {
 
-    public function validateNameTable(string $table): array
+    public static function validateNameTable(string $table): array
     {
         $response = ['status' => 'ok'];
 
@@ -27,7 +27,7 @@ class ValidationGenericEntitiesModel
         return $response;
     }
 
-    public function validateArray(array $mixed = null): array
+    public static function validateArray(array $mixed = null): array
     {
         $response = ['status' => 'ok'];
 
@@ -65,5 +65,14 @@ class ValidationGenericEntitiesModel
             }
         }
         return $response;
+    }
+
+    public static function validateKeys(array $conditions = null, array $keyValues): array
+    {
+        $condition = [];
+        foreach ($keyValues as $key) {
+            if (isset($conditions[$key])) $condition[$key] = $conditions[$key];
+        }
+        return $condition;
     }
 }

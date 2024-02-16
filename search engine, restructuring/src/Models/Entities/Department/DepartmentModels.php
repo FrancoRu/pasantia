@@ -3,6 +3,7 @@
 namespace App\Models\Entities\Department;
 
 use App\Models\Entities\GenericEntitiesModel;
+use App\Models\Entities\Validation\ValidationGenericEntitiesModel;
 
 class DepartmentModels
 {
@@ -25,10 +26,17 @@ class DepartmentModels
 
     public function find(array $mixed = null): array
     {
-        $newArr = $this->validateConditions($mixed);
+        $args = [];
+
+        if (isset($mixed['conditions'])) {
+            $args['conditions'] = ValidationGenericEntitiesModel::validateKeys($mixed['conditions'], ['id', 'description']);
+        }
+        if (isset($mixed['select'])) {
+            $args['select'] = ValidationGenericEntitiesModel::validateKeys($mixed['select'], ['id', 'description']);
+        }
         return $this->_model->find(
             $this->tableName,
-            $newArr
+            $args
         );
     }
 
@@ -36,8 +44,8 @@ class DepartmentModels
     {
         return $this->_model->set(
             $this->tableName,
-            $this->validateValues($value),
-            $this->validateConditions($conditions)
+            ValidationGenericEntitiesModel::validateKeys($value, ['description']),
+            ValidationGenericEntitiesModel::validateKeys($conditions, ['id', 'description'])
         );
     }
 
@@ -45,22 +53,7 @@ class DepartmentModels
     {
         return $this->_model->delete(
             $this->tableName,
-            $this->validateConditions($conditions)
+            ValidationGenericEntitiesModel::validateKeys($conditions, ['id', 'description'])
         );
-    }
-
-    private function validateConditions(array $conditions): array
-    {
-        $condition = [];
-        if (isset($conditions['id'])) $condition['id'] = $conditions['id'];
-        if (isset($conditions['description'])) $condition['description'] = $conditions['description'];
-        return $condition;
-    }
-
-    private function validateValues(array $values): array
-    {
-        $value = [];
-        if (isset($values['description'])) $value['description'] = $values['description'];
-        return $value;
     }
 }
