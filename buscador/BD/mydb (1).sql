@@ -28,8 +28,8 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `censo` (
-  `id_censo_anio` int(4) NOT NULL,
-  `descripcion_censo` varchar(255) DEFAULT NULL
+  `id` int(4) NOT NULL,
+  `description` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
@@ -99,15 +99,15 @@ INSERT INTO `censo_has_departamento` (`id_censo_has_departamento`, `Censo_id_cen
 --
 
 CREATE TABLE `cuadro` (
-  `id_cuadro` int(4) NOT NULL,
-  `cuadro_tematica_descripcion` varchar(45) NOT NULL
+  `id` int(4) NOT NULL,
+  `description` varchar(45) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Volcado de datos para la tabla `cuadro`
 --
 
-INSERT INTO `cuadro` (`id_cuadro`, `cuadro_tematica_descripcion`) VALUES
+INSERT INTO `cuadro` (`id`, `description`) VALUES
 (1, 'Caracteristicas Habitacionales'),
 (2, 'Hacinamiento'),
 (3, 'Equipamiento del hogar'),
@@ -127,15 +127,15 @@ INSERT INTO `cuadro` (`id_cuadro`, `cuadro_tematica_descripcion`) VALUES
 --
 
 CREATE TABLE `departamento` (
-  `id_departamento` varchar(3) NOT NULL,
-  `nombre_departamento` varchar(13) NOT NULL
+  `id` varchar(3) NOT NULL,
+  `description` varchar(13) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Volcado de datos para la tabla `departamento`
 --
 
-INSERT INTO `departamento` (`id_departamento`, `nombre_departamento`) VALUES
+INSERT INTO `departamento` (`id`, `description`) VALUES
 ('008', 'Colón'),
 ('015', 'Concordia'),
 ('021', 'Diamante'),
@@ -161,7 +161,7 @@ INSERT INTO `departamento` (`id_departamento`, `nombre_departamento`) VALUES
 --
 
 CREATE TABLE `registro` (
-  `ID` int(11) NOT NULL,
+  `id` int(11) NOT NULL,
   `Titulo_cuadro_id_registro` int(4) DEFAULT NULL,
   `Censo_has_departamento_id_registro` int(4) DEFAULT NULL,
   `url_cuadro_xlsx` varchar(255) DEFAULT NULL
@@ -171,7 +171,7 @@ CREATE TABLE `registro` (
 -- Volcado de datos para la tabla `registro`
 --
 
-INSERT INTO `registro` (`ID`, `Titulo_cuadro_id_registro`, `Censo_has_departamento_id_registro`, `url_cuadro_xlsx`) VALUES
+INSERT INTO `registro` (`id`, `Titulo_cuadro_id_registro`, `Censo_has_departamento_id_registro`, `url_cuadro_xlsx`) VALUES
 (1, 1, 1, 'https://www.dgec.gob.ar/buscador/descargas/Censo 2010-cuadros por muni frac y radio/Colón/1H-FR-Colón.xlsx'),
 (2, 2, 1, 'https://www.dgec.gob.ar/buscador/descargas/Censo 2010-cuadros por muni frac y radio/Colón/2H-FR-Colón.xlsx'),
 (3, 3, 1, 'https://www.dgec.gob.ar/buscador/descargas/Censo 2010-cuadros por muni frac y radio/Colón/3H-FR-Colón.xlsx'),
@@ -776,18 +776,18 @@ INSERT INTO `registro` (`ID`, `Titulo_cuadro_id_registro`, `Censo_has_departamen
 --
 
 CREATE TABLE `tematica` (
-  `id_tematica` char(1) NOT NULL,
-  `tematica_descripcion` varchar(10) NOT NULL
+  `id` char(1) NOT NULL,
+  `description` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Volcado de datos para la tabla `tematica`
 --
 
-INSERT INTO `tematica` (`id_tematica`, `tematica_descripcion`) VALUES
-('H', 'hogar'),
-('P', 'poblacion'),
-('V', 'vivienda');
+INSERT INTO `tematica` (`id`, `description`) VALUES
+('H', 'Hogar'),
+('P', 'Poblacion'),
+('V', 'Vivienda');
 
 -- --------------------------------------------------------
 
