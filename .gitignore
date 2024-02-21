@@ -1,34 +1,27 @@
 # Composer
-/vendor/
-/composer.phar
-/composer.lock
-/composer.json
+**/vendor/
+**/composer.phar
+**/composer.lock
+**/composer.json
 
 # IDE-specific files
-/.vscode/
-/.idea/
+**/.vscode/
+**/.idea/
 
 # Application-specific files
-/.env
-/.env.local
-/phpunit.xml
-/.phpunit.cache
+**/.env
+**/.env.local
+**/phpunit.xml
+**/.phpunit.cache
 # Logs
-/log/
+**/log/
 
 # User-specific files
-/.phpunit.result.cache
-/php-cs-fixer.php.cache
+**/.phpunit.result.cache
+**/php-cs-fixer.php.cache
 
 # Ignore configuration files that may contain sensitive information
-/.phpstorm.meta.php
-
-# Laravel specific
-/bootstrap/
-/storage/
-
-# Symfony specific
-/var/
+**/.phpstorm.meta.php
 
 # User-specific files
-/.phpunit.result.cache
+**/.phpunit.result.cache
