@@ -3,7 +3,7 @@ $(document).ready(function () {
 		event.preventDefault()
 		try {
 			const data = await handleSubmit()
-			console.log(data)
+
 			if (data !== false) {
 				await createTable(data)
 			}
@@ -27,7 +27,7 @@ async function handleSubmit() {
 		storageForm(formDataObject)
 		return fetch(url, {
 			method: 'POST',
-			body: formData,
+			body: formData
 		})
 			.then((response) => response.json())
 			.catch((error) => {

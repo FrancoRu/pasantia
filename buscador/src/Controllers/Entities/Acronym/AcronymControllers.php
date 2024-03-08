@@ -21,9 +21,7 @@ class AcronymControllers
     private AcronymModels $_model;
 
     /**
-     * 
      * @param AcronymModels $model the AcronymModels instance 
-     * 
      */
     public function __construct(AcronymModels $model)
     {

@@ -10,8 +10,9 @@ use App\Helpers\tableConstructor;
 use App\Models\Entities\GenericEntitiesModel;
 use App\Models\Entities\ManagerJSON\ManagerJSONModels;
 use App\Models\Entities\Table\TableModels;
+use Error;
 
-require '../../vendor/autoload.php';
+require __DIR__ . '/../../vendor/autoload.php';
 header('Content-Type: application/json; charset=UTF-8');
 header('Access-Control-Allow-Origin: *');
 header('Access-Control-Allow-Methods: GET, POST');
@@ -41,6 +42,7 @@ if (!isset($_SESSION['state'])) {
     }
 }
 
+
 if (isset($_GET['op']) && $_GET['op'] === 'get_cuadro') {
     $tableModel = new TableModels($models);
     $tableController = new TableControllers($tableModel);
@@ -56,6 +58,7 @@ if (isset($_GET['op']) && $_GET['op'] === 'get_cuadro') {
     );
     http_response_code(200);
     echo json_encode($table, JSON_UNESCAPED_UNICODE | JSON_HEX_TAG | JSON_HEX_QUOT);
+    exit;
 }
 
 if (isset($_GET['op']) && $_GET['op'] === 'updateJSONFile') {

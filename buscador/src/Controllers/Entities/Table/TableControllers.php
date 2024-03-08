@@ -67,11 +67,12 @@ class TableControllers
             ]);
         }
         $args = [
-            'censo' => $_POST['censo'],
+            'census' => $_POST['censo'],
             'department' => $_POST['department'],
             'theme' => $_POST['theme'],
-            'quadro' => $_POST['table']
+            'table' => $_POST['table']
         ];
+
         return $this->_model->findRecordTable($args);
     }
 

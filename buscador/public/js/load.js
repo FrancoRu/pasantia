@@ -9,7 +9,7 @@ $(document).ready(function () {
 		localStorage.removeItem('data')
 		const url = 'buscador/../public.json'
 		fetch(url, {
-			method: 'GET',
+			method: 'GET'
 		})
 			.then((response) => response.json())
 			.then((data) => {
@@ -67,7 +67,7 @@ $(document).ready(function () {
 		)
 		const theme =
 			data['censos'][indexYear]['departments'][indexDep]['themes'][indexTheme]
-				.quadros
+				.tables
 
 		sortSelect(theme)
 		addOption(theme, listTheme)
@@ -81,7 +81,6 @@ $(document).ready(function () {
 	function addOption(iterator, append) {
 		iterator.forEach((element) => {
 			const option = $('<option></option>')
-			console.log(element)
 			option.val(element.id).text(element.value)
 			append.append(option)
 		})
@@ -123,6 +122,7 @@ $(document).ready(function () {
 	attachChangeEvent(survey, [themes], [listTheme])
 
 	function sortSelect(iterator) {
+		console.log(iterator)
 		iterator.sort((a, b) => a.value.localeCompare(b.value))
 		const allOption = iterator.find((option) => option.value === 'Todos')
 		if (allOption) {
