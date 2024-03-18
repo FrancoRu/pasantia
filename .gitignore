@@ -2,7 +2,6 @@
 /vendor/
 /composer.phar
 /composer.lock
-/composer.json
 
 # IDE-specific files
 /.vscode/
