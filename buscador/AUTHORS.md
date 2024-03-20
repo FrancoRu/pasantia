@@ -8,7 +8,7 @@ Este archivo enumera a las personas que han contribuido al proyecto y reconoce s
 
 ## Colaboradores
 
-- [Valpondi Esteban Martin](https://www.linkedin.com/in/esteban-mart%C3%ADn-valpondi-b85688159/): Diseñador UX/UI.
+- [Valpondi Esteban Martin](mailto:martinvalpondi@gmail.com): Diseñador UX/UI.
 - [Sione Cesar Alberto](mailto:csione@indec.gob.ar): Se encargó de la comunicación del avance del proyecto.
 
 ## Contribuciones
