@@ -9,7 +9,7 @@ Este archivo enumera a las personas que han contribuido al proyecto y reconoce s
 ## Colaboradores
 
 - [Valpondi Esteban Martin](https://www.linkedin.com/in/esteban-mart%C3%ADn-valpondi-b85688159/): Realizo el diseño gráfico.
-- [Sione Cesar Alberto]: Se encargó de la comunicación del avance del proyecto. Contacto: csione@indec.gob.ar
+- [Sione Cesar Alberto](mailto:csione@indec.gob.ar): Se encargó de la comunicación del avance del proyecto.
 
 ## Contribuciones
 
